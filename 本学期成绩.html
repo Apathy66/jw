@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+    <title>本学期成绩</title>
+    <link rel="shortcut icon" href="http://jwstudent.lnu.edu.cn/img/icon/favicon.ico" type="image/x-icon">
+    <meta name="description" content="overview &amp; stats">
+
+    <!-- bootstrap & fontawesome -->
+    <!--     <link rel="stylesheet" type="text/css" href="/static/template.css"/> -->
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./本学期成绩_files/style-main.css">
+
+
+    <link rel="stylesheet" href="./assets/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./本学期成绩_files/iconfont.css">
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="./本学期成绩_files/jquery-ui.min.css" type="text/css">
+
+    <link rel="stylesheet" href="./本学期成绩_files/chosen.css">
+
+
+
+    <!-- page specific plugin styles -->
+
+    <!-- jquery ui grid -->
+
+    <!-- jquery ui grid -->
+
+    <!-- text fonts -->
+
+    <link rel="stylesheet" href="./本学期成绩_files/fonts-woff2.css">
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="./本学期成绩_files/ace.min.css" id="main-ace-style">
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/assets/css/ace-part2.min.css"/>
+    <![endif]-->
+
+
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/assets/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="./本学期成绩_files/ace-extra.min.js.下载"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="/assets/js/html5shiv.min.js"></script>
+    <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- basic scripts -->
+
+    <!--[if !IE]> -->
+    <script src="./本学期成绩_files/jquery-3.4.1.min.js.下载"></script>
+    <script src="./本学期成绩_files/jquery-migrate-3.1.0.min.js.下载"></script>
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script src="/js/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+
+
+    <script type="text/javascript" src="./本学期成绩_files/WdatePicker.js.下载"></script>
+    <link href="./本学期成绩_files/WdatePicker.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="./本学期成绩_files/chosen.jquery.min.js.下载"></script>
+
+    <!-- ace scripts -->
+    <script src="./本学期成绩_files/ace-elements.min.js.下载"></script>
+    <script src="./本学期成绩_files/ace.min.js.下载"></script>
+
+
+
+    <script type="text/javascript" src="./本学期成绩_files/jquery.cookie.js.下载"></script>
+
+    <!-- jqgrid -->
+
+    <!-- jqgrid -->
+
+    <!-- commoncss -->
+    <link rel="stylesheet" href="./本学期成绩_files/commoncss.css" type="text/css">
+    <!-- commoncss -->
+
+    <!-- alert -->
+    <script type="text/javascript" src="./本学期成绩_files/jquery-ui.min.js.下载"></script>
+
+    <script type="text/javascript" src="./本学期成绩_files/pagination.js.下载"></script>
+    <script type="text/javascript" src="./本学期成绩_files/urpalert.js.下载"></script>
+    <script type="text/javascript" src="./本学期成绩_files/layer.js.下载"></script>
+    <link rel="stylesheet" href="./本学期成绩_files/layer.css" id="layui_layer_skinlayercss" style="">
+
+    <script src="./本学期成绩_files/bootstrap.min.js.下载"></script>
+    <!-- alert -->
+
+    <!-- light bootstrap 两个图表-->
+
+    <!-- light bootstrap 两个图表-->
+
+    <!-- urp-ajax -->
+    <script type="text/javascript" src="./本学期成绩_files/urpajax.js.下载"></script>
+    <!-- urp-ajax -->
+    <script type="text/javascript">
+        $(function () {
+
+            if (false) {
+                var showResetpass = $.cookie('showResetpass');
+                if (true) {
+                    window.location.href = "/forcereset";
+                } else {
+                    if (showResetpass == null) {
+                        $.cookie('showResetpass', "0");
+                        var bar = $.cookie('selectionBar');
+                        $("#view-table .modal-dialog").css("width", "60%");
+                        $('#view-table').modal({
+                            remote: "/template/forcereset?modal=1",
+                            backdrop: "static",
+                            keyboard: false
+                        }).on("hidden.bs.modal", function () {
+                            $("#view-table .modal-dialog").css("width", "60%");
+                            $("#view-table .modal-content").html('<div class="center">\
+				                <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+				            </div>');
+                            $(this).removeData("bs.modal");
+                        });
+                    }
+                }
+            }
+
+            //websocket方法
+            //websocket方法
+            /*var socket = new websocket($('#userId').val());
+            layui.use('layim', function (layim) {
+                //基础配置
+                layim.config({
+                    init: {
+                        url: '/main/queryUserList' //接口地址（返回的数据格式见下文）
+                        , type: 'post' //默认get，一般可不填
+                        , data: {
+                            //code: websocket.code
+                        }//额外参数
+                    } //获取主面板列表信息，下文会做进一步介绍
+	
+                    //获取群员接口（返回的数据格式见下文）
+                    /!* , members: {
+                        url: '/main/queryMembers' //接口地址（返回的数据格式见下文）
+                        , type: 'get' //默认get，一般可不填
+                        , data: {
+                            //code: websocket.code
+                        } //额外参数
+                    },
+                    min: true, *!/
+                });
+	
+                layim.on('ready', function (options) {
+                    //console.info(options);
+                    $.ajax({
+                        url: "/main/doSendInfo",
+                        type: "post",
+                        data: null,
+                        dataType: "json",
+                        success: function (d) {
+                        },
+                        error: function () {
+                        }
+                    });
+                });
+	
+                socket.init({
+                    onopen: function (msg) {
+                        console.log("连接成功");
+                    },
+                    onmessage: function (res) {
+                        console.log("接收到消息");
+                        //res = JSON.parse(res);
+                        if (res.type === 'TYPE_TEXT_MESSAGE') {
+                            layim.getMessage(res.msg); //res.data即你发送消息传递的数据（阅读：监听发送的消息）
+                        } else if (res.type == 'addList') {
+                            $.each(res.list, function (i, v) {
+                                layim.addList(v); //如果是在iframe页，如LayIM设定的add面板，则为 parent.layui.layim.addList(data);
+                            });
+                        }
+                    }
+                });
+	
+                //监听发送消息
+                layim.on('sendMessage', function (data) {
+                    console.log(data);
+                    var msg = JSON.stringify(data);
+	
+                    socket.send(msg);
+	
+                });
+	
+                //监听在线状态的切换事件
+                layim.on('online', function (data) {
+                    console.log(data);
+                });
+	
+                //layim建立就绪
+                layim.on('ready', function (res) {
+                    closeLayIM(); 
+                });
+	
+                //监听查看群员
+                layim.on('members', function (data) {
+                    console.log(data);
+                });
+	
+                //监听聊天窗口的切换，每次窗口打开或切换，即更新对方的状态（是否在线）
+                layim.on('chatChange', function (res) {
+                    var type = res.data.type;
+                    if (type === 'friend') {
+                        //判断好友是否离线
+                        if (layui.jquery("#layim-friend" + res.data.id).hasClass('layim-list-gray'))
+                            layim.setChatStatus('<span style="color:#FF5722;">[离线]</span>'); //模拟标注好友在线状态
+                        else
+                            layim.setChatStatus('<span style="color:#FF5722;"></span>');
+                    } else if (type === 'group') {
+                    }
+                });
+            });*/
+        });
+    </script>
+    <style type="text/css">
+        /* .layui-layim-close {
+            display: none;
+        }
+*/
+    </style>
+
+
+    <link rel="stylesheet" href="./本学期成绩_files/jquery-ui.custom.min.css">
+    <link rel="stylesheet" href="./本学期成绩_files/fullcalendar.css">
+    <script src="./本学期成绩_files/moment.min.js.下载"></script>
+    <script src="./本学期成绩_files/fullcalendar.min.js.下载"></script>
+    <script src="./本学期成绩_files/moment.min.js.下载"></script>
+    <script src="./本学期成绩_files/fullcalendar.min.js.下载"></script>
+    <script src="./本学期成绩_files/bootbox.min.js.下载"></script>
+
+    <script src="./本学期成绩_files/jquery.gritter.min.js.下载"></script>
+    <link rel="stylesheet" href="./本学期成绩_files/jquery.gritter.css">
+    <link rel="stylesheet" href="./本学期成绩_files/ace.min.css" id="main-ace-style">
+    <style type="text/css">
+        .green_background {
+            background: #d4f0c6 !important;
+        }
+
+        .red_background {
+            background: #f0cdc7 !important;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var url = "/student/integratedQuery/scoreQuery/VisRPI48nR/thisTermScores/data";
+            $.get(url, function (data) {
+                var message = "";
+                if (data[0]['state'] == "0") {
+                    message = "<div class='alert alert-block alert-success'><button type='button' class='close' data-dismiss='alert'><i class='ace-icon fa fa-times'></i>	</button>该学期成绩查询已关闭，暂时不能查看成绩！</div>";
+                    $("#showMessage").html(message);
+                } else {
+                    if (data[0]['list'].length == 0) {
+                        message = "<div class='alert alert-block alert-success'><button type='button' class='close' data-dismiss='alert'><i class='ace-icon fa fa-times'></i>	</button>没有信息</div>";
+                        $("#showMessage").html(message);
+                    } else {
+                        $("#showMessage").show();
+                        useScoreExtension(data[0]['list']);
+                    }
+                }
+            });
+        });
+        function useScoreExtension(lnList) {
+            $.ajax({
+                url: "/student/integratedQuery/scoreQuery/coursePropertyScores/useScoreExtension",
+                type: "post",
+                data: "",
+                dataType: "json",
+                beforeSend: function () {
+                    index = layer.load(0, {
+                        shade: [0.2, '#000']
+                        //0.1透明度的白色背景
+                    });
+                },
+                success: function (d) {
+                    $("#param").val(d["param"]);
+                    $("#schoolName").val(d["schoolName"]);
+                    fillScoreTable(lnList);
+                },
+                error: function (xhr) {
+                    layer.close(index);
+                    urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status
+                        + "]:操作失败！");
+                },
+                complete: function () {
+                    layer.close(index);
+                }
+            });
+        }
+        function fillScoreTable(d) {
+            var tContent = "";
+            var param = $("#param").val();
+            var schoolName = $("#schoolName").val();
+            var showScoreDetail = $("#showScoreDetail").val();
+            if (showScoreDetail != "0") {
+                $("#mx").show();
+            } else {
+                $("#mx").hide();
+            }
+            $.each(d, function (i, v) {
+                tContent += "<tr>";
+                tContent += "<td >" + v.id.courseNumber + "</td>";
+                tContent += "<td >" + (v.coureSequenceNumber == null ? "" : (v.coureSequenceNumber == 'NONE' ? "" : v.coureSequenceNumber)) + "</td>";
+                tContent += "<td >" + v.courseName + "</td>";
+                tContent += "<td >" + v.credit + "</td>";
+                tContent += "<td >" + v.coursePropertyName + "</td>";
+                if (v.inputStatusCode == "05") {
+                    if (schoolName != "100010") {
+                        tContent += "<td >" + v.maxcj + "</td>";
+                        tContent += "<td >" + v.mincj + "</td>";
+                        tContent += "<td >" + v.avgcj + "</td>";
+                    }
+                    if (showScoreDetail != "0") {
+                        if (schoolName == "100010") {
+                            if (v.courseNumber == "58000001" || v.courseNumber == "58000002" || v.courseNumber == "58000003" || v.courseNumber == "58000004" || v.courseNumber == "58000005") {
+                                tContent += "<td " + (v.courseScore < 60 ? "class='red_background'" : "class='green_background'") + "><a style='cursor: pointer;text-decoration: underline;' " + (v.courseScore < 60 ? "class='red'" : "class='green'") + " title='" + (param == "1" ? "查看分项成绩" : "查看明细成绩") + "' onclick='lookSubitemScore(\"" + v.id.executiveEducationPlanNumber + "\",\"" + v.id.courseNumber + "\",\"" + v.coureSequenceNumber + "\",\"" + v.id.examtime + "\",\"" + v.coursePropertyCode + "\")'>" + v.courseScore + "</a></td>";
+                            } else {
+                                tContent += "<td " + (v.courseScore < 60 ? "class='red_background'" : "class='green_background'") + "><a style='cursor: pointer;text-decoration: underline;' " + (v.courseScore < 60 ? "class='red'" : "class='green'") + " title='" + (param == "1" ? "查看分项成绩" : "查看明细成绩") + "' onclick='lookSubitemScore(\"" + v.id.executiveEducationPlanNumber + "\",\"" + v.id.courseNumber + "\",\"" + v.coureSequenceNumber + "\",\"" + v.id.examtime + "\",\"" + v.coursePropertyCode + "\")'>" + v.levelName + "</a></td>";
+                            }
+                        } else {
+                            if (v.inputMethodCode == "002") {
+                                tContent += "<td " + (v.courseScore < 60 ? "class='red_background'" : "class='green_background'") + "><a style='cursor: pointer;text-decoration: underline;' " + (v.courseScore < 60 ? "class='red'" : "class='green'") + " title='" + (param == "1" ? "查看分项成绩" : "查看明细成绩") + "' onclick='lookSubitemScore(\"" + v.id.executiveEducationPlanNumber + "\",\"" + v.id.courseNumber + "\",\"" + v.coureSequenceNumber + "\",\"" + v.id.examtime + "\",\"" + v.coursePropertyCode + "\")'>" + v.levelName + "</a></td>";
+                            } else {
+                                tContent += "<td " + (v.courseScore < 60 ? "class='red_background'" : "class='green_background'") + "><a style='cursor: pointer;text-decoration: underline;' " + (v.courseScore < 60 ? "class='red'" : "class='green'") + " title='" + (param == "1" ? "查看分项成绩" : "查看明细成绩") + "' onclick='lookSubitemScore(\"" + v.id.executiveEducationPlanNumber + "\",\"" + v.id.courseNumber + "\",\"" + v.coureSequenceNumber + "\",\"" + v.id.examtime + "\",\"" + v.coursePropertyCode + "\")'>" + v.courseScore + "</a></td>";
+                            }
+                        }
+                        /*  tContent += "<td >";
+                         tContent += "<button class='btn btn-info btn-round btn-xs'  id='gritter-sticky-" + i + "'>";//
+                         tContent += "<i class='ace-icon fa fa-eye bigger-120'></i>查看</button></td>"; */
+                    } else {
+                        if (v.inputMethodCode == "002") {
+                            tContent += "<td>" + v.levelName + "</td>";
+                        } else {
+                            tContent += "<td>" + v.courseScore + "</td>";
+                        }
+                    }
+                    if (schoolName != "100010") {
+                        tContent += "<td >" + v.rank + "</td>";
+                    }
+                    tContent += "<td >" + v.unpassedReasonExplain + "</td>";
+                }
+                else {
+                    if (showScoreDetail != "0") {
+                        if (schoolName == "100010") {
+                            tContent += "<td ></td><td ></td><td ></td>";
+                        } else {
+                            tContent += "<td ></td><td ></td><td ></td>" +
+                                "<td ></td><td ></td><td ></td><td ></td>";
+                        }
+                    } else {
+                        if (schoolName == "100010") {
+                            tContent += "<td ></td><td ></td>";
+                        } else {
+                            tContent += "<td ></td><td ></td><td ></td>" +
+                                "<td ></td><td ></td><td ></td>";
+                        }
+                    }
+                }
+
+                tContent += "<td >" + v.englishCourseName + "</td>";
+                tContent += "</tr>";
+            });
+            $("#scoretbody").html(tContent);
+
+            for (var i = 0; i < d.length; i++) {
+                $("#gritter-sticky-" + i).on(ace.click_event, {
+                    zxjxjhh: d[i].id.executiveEducationPlanNumber,
+                    kch: d[i].id.courseNumber,
+                    kssj: d[i].id.examtime,
+                    kxh: d[i].coureSequenceNumber,
+                    kcm: d[i].courseName
+                }, search);
+            }
+        }
+        function search(event) {
+            var schoolName = $("#schoolName").val();
+            $.ajax({
+                url: "/student/integratedQuery/scoreQuery/VisRPI48nR/thisterm/coursePropertyScores/serchScoreDetail",
+                type: "post",
+                data: {
+                    zxjxjhh: event.data.zxjxjhh,
+                    kch: event.data.kch,
+                    kssj: event.data.kssj,
+                    kxh: event.data.kxh
+                },
+                dataType: "json",
+                success: function (data) {
+                    var text = "";
+                    if (data.mx.length != 0) {
+                        var rounding = data.rounding;
+                        var ejcjCount = data.ejcjCount;
+                        text += "<table class='table table-bordered table-hover' style='color:#181818;background:#F0F0F0;'>"
+                            + "<thead><tr><th >课程名:</th><th colspan='4'>" + event.data.kcm + "</th></tr>"
+                            + "<tr><td class='fieldName' align='right' width='150'>成绩分类:</td>"
+                            + "<td  width='100'>平时 </td>"
+                            + "<td  width='100'>期中</td>"
+                            + "<td  width='100'> 期末 </td>"
+                            + "<td  width='100'>分类总成绩</td></tr></thead>"
+                            + "<tbody>"
+                            + "<tr><td class='fieldName' align='right' width='150'>课堂成绩(" + parseFloat(data.xs[0].scoreCoefficient == null ? 0 : data.xs[0].scoreCoefficient) * 100 + ")%:</td>"
+                            + "<td  width='100'>" + (data.mx[0].pscj == null ? "" : (data.mx[0].pscj > 0 ? data.mx[0].pscj : DJCJToDJMConvert(data.mx[0].pscj))) + " </td>"
+                            + "<td  width='100'>" + (data.mx[0].qzcj == null ? "" : (data.mx[0].qzcj > 0 ? data.mx[0].qzcj : DJCJToDJMConvert(data.mx[0].qzcj))) + "</td>"
+                            + "<td  width='100'>" + (data.mx[0].qmcj == null ? "" : (data.mx[0].qmcj > 0 ? data.mx[0].qmcj : DJCJToDJMConvert(data.mx[0].qmcj))) + " </td>";
+                        if (schoolName == "100010") {
+                            if (event.data.kch == "58000001" || event.data.kch == "58000002" || event.data.kch == "58000003" || event.data.kch == "58000004" || event.data.kch == "58000005") {
+                                text += "<td  width='100'>" + (data.mx[0].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[0].zcj) : data.mx[0].zcj)) + "</td></tr>";
+                            } else {
+                                if (ejcjCount > 0) {
+                                    text += "<td  width='100'>" + (data.mx[0].zcj == null ? "" : (data.mx[0].zcj > 19 ? "P" : "N")) + "</td></tr>";
+                                } else {
+                                    text += "<td  width='100'>" + DJCJToDJMConvert(ZSCJToDJCJConvert((data.mx[0].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[0].zcj) : data.mx[0].zcj)))) + "</td></tr>";
+                                }
+                            }
+                        } else {
+                            text += "<td  width='100'>" + (data.mx[0].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[0].zcj) : data.mx[0].zcj)) + "</td></tr>";
+                        }
+                        text += "<tr><td class='fieldName' align='right' width='150'>实验成绩(" + parseFloat(data.xs[1].scoreCoefficient == null ? 0 : data.xs[1].scoreCoefficient) * 100 + ")%:</td>"
+                            + "<td  width='100'>" + (data.mx[1].pscj == null ? "" : (data.mx[1].pscj > 0 ? data.mx[1].pscj : DJCJToDJMConvert(data.mx[1].pscj))) + " </td>"
+                            + "<td  width='100'>" + (data.mx[1].qzcj == null ? "" : (data.mx[1].qzcj > 0 ? data.mx[1].qzcj : DJCJToDJMConvert(data.mx[1].qzcj))) + "</td>"
+                            + "<td  width='100'>" + (data.mx[1].qmcj == null ? "" : (data.mx[1].qmcj > 0 ? data.mx[1].qmcj : DJCJToDJMConvert(data.mx[1].qmcj))) + " </td>";
+                        if (schoolName == "100010") {
+                            if (event.data.kch == "58000001" || event.data.kch == "58000002" || event.data.kch == "58000003" || event.data.kch == "58000004" || event.data.kch == "58000005") {
+                                text += "<td  width='100'>" + (data.mx[1].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[1].zcj) : data.mx[1].zcj)) + "</td></tr>";
+                            } else {
+                                if (ejcjCount > 0) {
+                                    text += "<td  width='100'>" + (data.mx[1].zcj == null ? "" : (data.mx[1].zcj > 19 ? "P" : "N")) + "</td></tr>";
+                                } else {
+                                    text += "<td  width='100'>" + DJCJToDJMConvert(ZSCJToDJCJConvert((data.mx[1].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[1].zcj) : data.mx[1].zcj)))) + "</td></tr>";
+                                }
+                            }
+                        } else {
+                            text += "<td  width='100'>" + (data.mx[1].zcj == null ? "" : data.mx[1].zcj) + "</td></tr>";
+                        }
+                        text += "<tr><td class='fieldName' align='right' width='150'>实践成绩(" + parseFloat(data.xs[2].scoreCoefficient == null ? 0 : data.xs[2].scoreCoefficient) * 100 + ")%:</td>"
+                            + "<td  width='100'>" + (data.mx[2].pscj == null ? "" : (data.mx[2].pscj > 0 ? data.mx[2].pscj : DJCJToDJMConvert(data.mx[2].pscj))) + " </td>"
+                            + "<td  width='100'>" + (data.mx[2].qzcj == null ? "" : (data.mx[2].qzcj > 0 ? data.mx[2].qzcj : DJCJToDJMConvert(data.mx[2].qzcj))) + "</td>"
+                            + "<td  width='100'>" + (data.mx[2].qmcj == null ? "" : (data.mx[2].qmcj > 0 ? data.mx[2].qmcj : DJCJToDJMConvert(data.mx[2].qmcj))) + " </td>";
+                        if (schoolName == "100010") {
+                            if (event.data.kch == "58000001" || event.data.kch == "58000002" || event.data.kch == "58000003" || event.data.kch == "58000004" || event.data.kch == "58000005") {
+                                text += "<td  width='100'>" + (data.mx[2].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[2].zcj) : data.mx[2].zcj)) + "</td></tr>";
+                            } else {
+                                if (ejcjCount > 0) {
+                                    text += "<td  width='100'>" + (data.mx[2].zcj == null ? "" : (data.mx[2].zcj > 19 ? "P" : "N")) + "</td></tr>";
+                                } else {
+                                    text += "<td  width='100'>" + DJCJToDJMConvert(ZSCJToDJCJConvert((data.mx[2].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[2].zcj) : data.mx[2].zcj)))) + "</td></tr>";
+                                }
+                            }
+                        } else {
+                            text += "<td  width='100'>" + (data.mx[2].zcj == null ? "" : (rounding == "1" ? Math.round(data.mx[2].zcj) : data.mx[2].zcj)) + "</td></tr>";
+                        }
+                        text += "</tbody></table>";
+                    } else {
+                        text = "<span>没有明细</span>";
+                    }
+                    var unique_id = $.gritter.add({
+                        title: '课程明细',
+                        text: text,
+                        //image: $path_assets+'/avatars/avatar.png',
+                        sticky: false,
+                        time: 3000,
+                        before_open: function () {
+                            if ($('.gritter-item-wrapper').length >= 1) {
+                                return false;
+                            }
+                        },
+                        class_name: 'gritter-info'
+                    });
+                    return false;
+                },
+                error: function () {
+                    urp.alert("查询失败！");
+                }
+            });
+        }
+        function lookSubitemScore(zxjxjhh, kch, kxh, kssj, kcsxdm) {
+            var param = $("#param").val();
+            $.ajax({
+                url: "/student/integratedQuery/scoreQuery/subitemScore/look",
+                type: "post",
+                data: "zxjxjhh=" + zxjxjhh + "&kch=" + kch + "&kxh=" + kxh
+                    + "&kssj=" + kssj + "&param=" + param,
+                dataType: "json",
+                beforeSend: function () {
+                    index = layer.load(0, {
+                        shade: [0.2, '#000']
+                        //0.1透明度的白色背景
+                    });
+                },
+                success: function (d) {
+                    if (d["scoreDetailList"].length > 0) {
+                        if (param == "1") {
+                            window.location.href = "/student/integratedQuery/scoreQuery/subitemScore/fxcjIndex/" + zxjxjhh + "/" + kch + "/" + kxh + "/" + kssj + "/" + kcsxdm;
+                        } else {
+                            window.location.href = "/student/integratedQuery/scoreQuery/subitemScore/mxcjIndex/" + zxjxjhh + "/" + kch + "/" + kxh + "/" + kssj;
+                        }
+                    } else {
+                        if (param == "1") {
+                            urp.alert("当前课程暂无分项成绩！");
+                        } else {
+                            urp.alert("当前课程暂无明细成绩！");
+                        }
+                    }
+                },
+                error: function (xhr) {
+                    layer.close(index);
+                    urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status
+                        + "]:操作失败！");
+                },
+                complete: function () {
+                    layer.close(index);
+                }
+            });
+        }
+        function ZSCJToDJCJConvert(zscj) {//真实成绩转等级成绩
+            var djcj = "";
+            $options1 = $("#bfcj_complete option");
+            $.each($options1, function (index, ele) {
+                var $option = $(ele);
+                var DJCJ = $option.val();
+                var XXF = $option.attr("xxf");
+                var SXF = $option.attr("sxf");
+                if ((parseFloat(zscj) >= parseFloat(XXF)) && (parseFloat(zscj) < parseFloat(SXF))) {
+                    djcj = DJCJ;
+                }
+            });
+            return djcj;
+        }
+        function DJCJToDJMConvert(djcj) {//根据等级成绩获取等级名
+            var djm = "";
+            $options1 = $("#djcj_complete option");
+            $.each($options1, function (index, ele) {
+                var $option = $(ele);
+                var DJCJ = $option.val();
+                var DJM = $option.text();
+                if (DJCJ == djcj) {
+                    djm = DJM;
+                }
+            });
+            return djm;
+        }
+    </script>
+
+
+    <style>
+        hcfy-result.__hcfy__result__loaded__.__hcfy__result__both__ {
+            border: 1px dotted
+        }
+    </style>
+</head>
+
+<body class="no-skin">
+
+    <!-- 查看详情专用 -->
+    <div class="modal fade" id="view-table" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" style="width:60%;">
+            <div class="modal-content">
+                <div class="center">
+                    <span class="view-pre-loading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 查看详情专用 -->
+
+    <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        调课后的周次
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    开始周次:<input type="text" name="kszc" id="kszc" readonly="readonly"><br>
+                    结束周次:<input type="text" name="jszc" id="jszc"><br>
+                    选择周次模式:<input type="radio" name="zcms" value="1" style="width:20px"> 全周 &nbsp;&nbsp;
+                    <input type="radio" name="zcms" value="2" style="width:20px"> 单周&nbsp;&nbsp;
+                    <input type="radio" name="zcms" value="3" style="width:20px"> 双周
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default">
+                        保存
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div id="navbar" class="navbar navbar-default  navbar-fixed-top">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('navbar', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <div class="navbar-container" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+                <span class="sr-only">Toggle sidebar</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-header pull-left">
+                <a href="http://jwstudent.lnu.edu.cn/" class="navbar-brand" id="0" onclick="toSelect(this);">
+                    <small style="font-weight:700;font-family:微软雅黑">
+                        <!--
+                    <i class="fa fa-leaf"></i>
+                    Ace Admin
+                     -->
+
+                        URP高校教学管理与服务平台
+
+                    </small>
+                </a>
+            </div>
+
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="green" style="text-align: center">
+                        <div class="intellegenceUDiv" style="z-index:1" id="intellegenceUDiv">
+                            <div style="height:100%; width:32px; display:inline-block;
+									 position:absolute;line-height:100%;left:-32px;
+									 background-color:#777;cursor:pointer; " id="clickdiv" onclick="changeInfo()">
+                                <i class="fa fa-search white" style="margin-top: 50%;" id="clicki"></i>
+                            </div>
+                        </div>
+                        <div id="form-search" class="nav-search"
+                            style="width:0px;right:-20px;margin-top: 8px; margin-right:20px;background-color:rgba(0,0,0,0);z-index:-1">
+                            <form class="form-search">
+                                <span class="input-icon">
+                                    <input type="text" placeholder="查找功能..." class="nav-search-input" id="search-input"
+                                        autocomplete="off">
+                                    <i class="ace-icon fa fa-search blue"></i>
+                                </span>
+                            </form>
+                        </div>
+                    </li>
+                    <!-- 通知   -->
+
+
+
+
+                    <!-- 展示当前的学期季度信息 -->
+                    <li class="light-red" style="text-align: center">
+                        <a data-toggle="dropdown" class="dropdown-toggle"
+                            href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                            onclick="SchoolCalendar()">
+                            <i class="ace-icon fa fa-calendar"></i>
+
+
+                            当前处于假期时间
+                        </a>
+                    </li>
+
+
+
+
+
+                    <li class="light-blue" style="text-align: center">
+                        <a data-toggle="dropdown"
+                            href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                            class="dropdown-toggle">
+                            <img class="nav-user-photo" src="./本学期成绩_files/man.png"
+                                onerror="this.src=&#39;/assets/avatars/user.jpg&#39;" alt="Jason&#39;s Photo">
+                            <span class="user-info">
+                                <small>欢迎您，</small>
+
+
+                                陈宇飞
+                            </span>
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+                        <input type="hidden" id="userId" value="
+
+
+191492216
+">
+                        <ul
+                            class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="http://jwstudent.lnu.edu.cn/" title="主页" onclick="toSelect(this);">
+                                    <i class="ace-icon fa fa-home"></i>首页
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="javascript:changePassword(&#39;/student/rollManagement/personalInfoUpdate/updatePassword&#39;)">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    修改密码
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a id="logout" href="http://jwstudent.lnu.edu.cn/logout" title="退出系统">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    注销
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- 主页 -->
+                    <!-- <li class="light-blue" style="text-align: center" >
+                     <a href="/" title="主页" id='0' onclick="toSelect(this);">
+                        <i class="ace-icon fa fa-home"></i>
+                    </a>
+                </li>
+                <li  class="light-blue" style="text-align: center" >
+                    <a href="/logout" title="退出系统" onclick="removeCookie();">
+                        <i class="ace-icon fa fa-power-off"></i>
+                    </a>
+                </li>
+-->
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-container -->
+    </div>
+
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            function changeInfo() {
+                $("#form-search").animate({ width: '152px', right: '22px' });
+            }
+            $(document).click(function (e) {
+                var id = $(e.target).attr("id");
+                if (id == "clickdiv" || id == "clicki" || id == "search-input") {
+
+                } else {
+                    $("#form-search").animate({ width: '0px', right: '-20px' });
+                }
+            })
+            try {
+                ace.settings.check('main-container', 'fixed')
+            } catch (e) {
+            }
+
+            function SchoolCalendar() {
+                //	var ifheight = $(window).height()-$(".modal-content").offset().top ;
+                $(".modal-content").html("<iframe width='100%' style='width:100%; min-height:600px; height:100%; overflow: hidden;' src='/indexCalendar' ></iframe>");
+                //$(".modal-content iframe").css("max-height",ifheight);
+                $("#view-table").modal().show().on("hidden.bs.modal", function () {
+                    $(this).removeData("bs.modal");
+                });
+            }
+
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            var isMenuToDeal = true;
+
+            function rootMenuClick(obj) {
+                if (isMenuToDeal && !$(obj).hasClass("open")) {
+                    $.each($(obj).find(".hsub"), function () {
+                        if ($(this).hasClass("open")) {
+                            isMenuToDeal = false;
+                        }
+                    });
+                } else {
+                    isMenuToDeal = false;
+                }
+
+                if (isMenuToDeal) {
+                    var firobj = $(obj).children("ul").children("li").first();
+                    firobj.addClass("open");
+                    $(firobj).children("ul").css("display", "block");
+                } else {
+                    isMenuToDeal = true;
+                }
+            }
+
+            function stopHere(e) {
+                isMenuToDeal = false;
+            }
+
+            /*菜单上的搜索框*/
+            $(document).ready(function () {
+                var obj_lis = $("#menus").find("li > ul > li > ul > li");
+                var obj_menus = new Array();
+                for (i = 0; i < obj_lis.length; i++) {
+                    obj_menus[i] = $.trim($(obj_lis[i]).find("a:first").text());
+                }
+                try {
+                    $("#search-input").bs_typeahead({
+                        source: obj_menus,
+                        updater: function (a) {
+                            for (i = 0; i < obj_lis.length; i++) {
+                                if (a == $.trim($(obj_lis[i]).find("a:first").text())) {
+                                    $.cookie('selectionBar', obj_lis[i].id, {
+                                        path: '/'
+                                    });
+                                    window.location.href = $(obj_lis[i]).find("a:first").attr("href");
+                                    break;
+                                }
+                            }
+                            return a;
+                        }
+                    })
+                } catch (a) {
+                }
+            });
+
+            function changePassword(url) {
+                ///student/rollManagement/personalInfoUpdate/updatePassword
+                $('#view-table').modal({
+                    remote: url
+                }).on("hidden.bs.modal", function () {
+                    /*$("div").remove(".widget-box");*/
+                    $(this).removeData("bs.modal");
+                }).css({
+                    width: 'auto'
+                });
+            }
+
+        </script>
+
+        <style type="text/css">
+            .sidebar>.nav-search {
+                position: static;
+                background-color: #FAFAFA;
+                border-bottom: 1px solid #DDD;
+                text-align: center;
+                height: 35px;
+                padding-top: 0px;
+            }
+
+            .sidebar>.nav-search .nav-search-input {
+                width: 162px !important;
+                border-radius: 5px !important;
+                max-width: 162px !important;
+                opacity: 1 !important;
+                filter: alpha(opacity=100) !important;
+            }
+
+            #breadcrumbs li {
+                cursor: pointer;
+            }
+        </style>
+        <div id="sidebar" class="sidebar responsive sidebar-fixed">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <div style="position: relative;">
+                <div class="nav-wrap">
+                    <div style="position: relative; top: 0px; transition-property: top; transition-duration: 0.2s;">
+                        <ul class="nav nav-list" id="menus">
+
+                            <li class="hsub" id="1181690" onclick="rootMenuClick(this);">
+                                <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                    class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-tachometer"></i>
+                                    <span class="menu-text"> 个人管理 </span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu" onclick="stopHere();">
+
+                                    <li class="hsub" id="1188620">
+                                        <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                            class="dropdown-toggle">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            学籍管理
+                                            <b class="arrow fa fa-angle-down"></b>
+                                        </a>
+
+                                        <b class="arrow"></b>
+
+
+                                        <ul class="submenu">
+
+                                            <li class="" id="1183421" onclick="toSelect(this);">
+                                                <a
+                                                    href="./学籍信息.html">&nbsp;&nbsp;
+                                                    学生学籍信息
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                            <li class="" id="1183422" onclick="toSelect(this);">
+                                                <a
+                                                    href="./个人信息修改.html">&nbsp;&nbsp;
+                                                    个人信息修改
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                            
+
+                                        </ul>
+
+
+                                    </li>
+
+                                 
+
+                                </ul>
+
+                            </li>
+
+                            <li class="hsub" id="82020" onclick="rootMenuClick(this);">
+                                <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                    class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-desktop"></i>
+                                    <span class="menu-text"> 选课管理 </span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu" onclick="stopHere();">
+
+                                    <li class="hsub" id="1293220">
+                                        <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                            class="dropdown-toggle">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            选课管理
+                                            <b class="arrow fa fa-angle-down"></b>
+                                        </a>
+
+                                        <b class="arrow"></b>
+
+
+                                        <ul class="submenu">
+
+                                            <li class="" id="1293217" onclick="toSelect(this);">
+                                                <a
+                                                    href="./提示.html">&nbsp;&nbsp;
+                                                    选课公告
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                            
+
+                                        </ul>
+
+
+                                    </li>
+
+                                    <li class="hsub" id="82021">
+                                        <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                            class="dropdown-toggle">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            本学期课表
+                                            <b class="arrow fa fa-angle-down"></b>
+                                        </a>
+
+                                        <b class="arrow"></b>
+
+
+                                        <ul class="submenu">
+
+                                            <li class="" id="82022" onclick="toSelect(this);">
+                                                <a
+                                                    href="./本学期课程表.html">&nbsp;&nbsp;
+                                                    本学期课表
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                            
+
+                                        </ul>
+
+
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                        
+
+                            <li class="active open" id="1377620" onclick="rootMenuClick(this);">
+                                <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                    class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-calendar"></i>
+                                    <span class="menu-text"> 综合查询 </span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu nav-show" onclick="stopHere();" style="display: block;">
+
+                                    <li class="active open" id="1377621">
+                                        <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+                                            class="dropdown-toggle">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            成绩查询
+                                            <b class="arrow fa fa-angle-down"></b>
+                                        </a>
+
+                                        <b class="arrow"></b>
+
+
+                                        <ul class="submenu nav-show" style="display: block;">
+
+                                           
+                                            <li class="" id="1443374" onclick="toSelect(this);">
+                                                <a
+                                                    href="./不及格成绩.html">&nbsp;&nbsp;
+                                                    不及格成绩
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                            <li class="active" id="1443375" onclick="toSelect(this);">
+                                                <a
+                                                    href="./本学期成绩.html"><i
+                                                        class="menu-icon fa fa-caret-right"></i><i
+                                                        class="menu-icon fa fa-caret-right"></i>&nbsp;&nbsp;
+                                                    本学期成绩
+                                                </a>
+
+                                                <b class="arrow"></b>
+                                            </li>
+
+                                         
+
+                                        </ul>
+
+
+                                    </li>
+
+                                    
+
+                                </ul>
+
+                            </li>
+
+                         
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="ace-scroll nav-scroll">
+                    <div class="scroll-track" style="display: none;">
+                        <div class="scroll-bar" style="top: 0px; transition-property: top; transition-duration: 0.13s;">
+                        </div>
+                    </div>
+                    <div class="scroll-content" style="">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.nav-list -->
+
+            <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="z-index: 1;">
+                <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
+                    data-icon2="ace-icon fa fa-angle-double-right"></i>
+            </div>
+
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {
+                }
+            </script>
+        </div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try {
+                        ace.settings.check('breadcrumbs', 'fixed')
+                    } catch (e) {
+                    }
+                </script>
+
+                <ul class="breadcrumb">
+                    <li onclick="javascript:window.location.href=&#39;/&#39;" style="cursor:pointer;">
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        首页
+                    </li>
+                    <li class="active" onclick="ckickTopMenu(this);return false;" id="firmenu" menuid="1377620">综合查询
+                    </li>
+                    <li class="active" onclick="ckickTopMenu(this);return false;" id="secmenu" menuid="1377621">成绩查询
+                    </li>
+                    <li class="active" onclick="ckickTopMenu(this);return false;" id="lastmenu" menuid="1443375">本学期成绩
+                    </li>
+                </ul>
+                <!-- /.breadcrumb -->
+            </div>
+
+            <div class="page-content" id="page-content-template">
+
+
+                <select id="bfcj_complete" style="display: none;">
+
+
+                </select>
+                <select id="djcj_complete" style="display: none;">
+
+
+                    <option value="-95">优秀</option>
+
+                    <option value="-85">良好</option>
+
+                    <option value="-75">中等</option>
+
+                    <option value="-65">及格</option>
+
+                    <option value="-55">不及格</option>
+
+                    <option value="-1">缺考</option>
+
+                    <option value="-8">免考</option>
+
+                    <option value="-9">免修</option>
+
+                    <option value="-59">缓考</option>
+
+                    <option value="-50">不合格</option>
+
+                    <option value="-90">合格</option>
+
+                </select>
+                <input type="hidden" id="param" name="param" value="1">
+                <input type="hidden" id="schoolCode" name="schoolCode" value="100048">
+                <input type="hidden" id="schoolName" name="schoolName" value="100048">
+                <input type="hidden" id="showScoreDetail" name="showScoreDetail" value="0">
+
+                <div class="row">
+                    <div class="col-sm-12 self-margin" id="showMessage">
+                        <div id="timeline-1">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4 class="header smaller lighter grey">
+                                        <i class="menu-icon fa fa-calendar"></i> 本学期成绩查询列表
+                                    </h4>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <table class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>课程号</th>
+                                                        <th>课序号</th>
+                                                        <th>课程名</th>
+                                                        <th>学分</th>
+                                                        <th>课程属性</th>
+
+                                                        <th>课程最高分</th>
+                                                        <th>课程最低分</th>
+                                                        <th>课程平均分</th>
+
+                                                        <th>成绩</th>
+                                                        <!-- <th id="mx">明细</th> -->
+
+                                                        <th>名次</th>
+
+                                                        <th>未通过原因</th>
+                                                        <th>英文课程名</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="scoretbody">
+                                                    <tr>
+                                                        <td>1424291</td>
+                                                        <td>1</td>
+                                                        <td>程序设计综合实践</td>
+                                                        <td>1</td>
+                                                        <td>必修</td>
+                                                        <td>95</td>
+                                                        <td>65</td>
+                                                        <td> 86.03</td>
+                                                        <td>良好</td>
+                                                        <td>59</td>
+                                                        <td></td>
+                                                        <td>Comprehensive practice of program design</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426133</td>
+                                                        <td>1</td>
+                                                        <td>通信电子线路</td>
+                                                        <td>3</td>
+                                                        <td>必修</td>
+                                                        <td>98</td>
+                                                        <td>0</td>
+                                                        <td> 77.21</td>
+                                                        <td>87</td>
+                                                        <td>57</td>
+                                                        <td></td>
+                                                        <td>Communication Electronic Circuits</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426223</td>
+                                                        <td>1</td>
+                                                        <td>微机原理与应用</td>
+                                                        <td>3</td>
+                                                        <td>必修</td>
+                                                        <td>93</td>
+                                                        <td>0</td>
+                                                        <td> 75.44</td>
+                                                        <td>81</td>
+                                                        <td>31</td>
+                                                        <td></td>
+                                                        <td>The Principle and Application of Microcomputer</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426233</td>
+                                                        <td>1</td>
+                                                        <td>电磁场与电磁波</td>
+                                                        <td>3</td>
+                                                        <td>必修</td>
+                                                        <td>98</td>
+                                                        <td>0</td>
+                                                        <td> 71.71</td>
+                                                        <td>77</td>
+                                                        <td>78</td>
+                                                        <td></td>
+                                                        <td>Electromagnetic Fields and Waves</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426284</td>
+                                                        <td>1</td>
+                                                        <td>通信原理</td>
+                                                        <td>3.5</td>
+                                                        <td>必修</td>
+                                                        <td>97</td>
+                                                        <td>0</td>
+                                                        <td> 72.11</td>
+                                                        <td>77</td>
+                                                        <td>78</td>
+                                                        <td></td>
+                                                        <td>Principles of Communications</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426781</td>
+                                                        <td>1</td>
+                                                        <td>微机原理与应用实验</td>
+                                                        <td>1</td>
+                                                        <td>必修</td>
+                                                        <td>95</td>
+                                                        <td>65</td>
+                                                        <td> 84.42</td>
+                                                        <td>良好</td>
+                                                        <td>61</td>
+                                                        <td></td>
+                                                        <td>Microcomputer Principle and Applicantion Experiment</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426791</td>
+                                                        <td>1</td>
+                                                        <td>通信原理实验</td>
+                                                        <td>1</td>
+                                                        <td>必修</td>
+                                                        <td>95</td>
+                                                        <td>0</td>
+                                                        <td> 85.77</td>
+                                                        <td>良好</td>
+                                                        <td>130</td>
+                                                        <td></td>
+                                                        <td>Experiment of Communication Principles</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1426831</td>
+                                                        <td>1</td>
+                                                        <td>通信电子线路实验</td>
+                                                        <td>1</td>
+                                                        <td>必修</td>
+                                                        <td>95</td>
+                                                        <td>0</td>
+                                                        <td> 77.43</td>
+                                                        <td>良好</td>
+                                                        <td>28</td>
+                                                        <td></td>
+                                                        <td>Communication Electronic Circuit Experiment</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1436502</td>
+                                                        <td>1</td>
+                                                        <td>面向对象程序设计</td>
+                                                        <td>2</td>
+                                                        <td>选修</td>
+                                                        <td>92</td>
+                                                        <td>0</td>
+                                                        <td> 75.32</td>
+                                                        <td>84</td>
+                                                        <td>14</td>
+                                                        <td></td>
+                                                        <td>Object-Oriented Programming Design</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1436512</td>
+                                                        <td>1</td>
+                                                        <td>数据结构与算法分析</td>
+                                                        <td>2</td>
+                                                        <td>选修</td>
+                                                        <td>95</td>
+                                                        <td>70</td>
+                                                        <td> 85.47</td>
+                                                        <td>82</td>
+                                                        <td>95</td>
+                                                        <td></td>
+                                                        <td>Data structure and Algorithm Analysis</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1436812</td>
+                                                        <td>1</td>
+                                                        <td>Python程序设计</td>
+                                                        <td>2</td>
+                                                        <td>选修</td>
+                                                        <td>94</td>
+                                                        <td>76</td>
+                                                        <td> 82.03</td>
+                                                        <td>82</td>
+                                                        <td>54</td>
+                                                        <td></td>
+                                                        <td>Python Programming</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1436991</td>
+                                                        <td>1</td>
+                                                        <td>面向对象程序设计实验</td>
+                                                        <td>1</td>
+                                                        <td>选修</td>
+                                                        <td>95</td>
+                                                        <td>65</td>
+                                                        <td> 82.81</td>
+                                                        <td>良好</td>
+                                                        <td>20</td>
+                                                        <td></td>
+                                                        <td>Experiments of Object-oriented Programming</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2210192</td>
+                                                        <td>6</td>
+                                                        <td>习近平新时代中国特色社会主义思想概论</td>
+                                                        <td>2</td>
+                                                        <td>必修</td>
+                                                        <td>96</td>
+                                                        <td>0</td>
+                                                        <td> 76.61</td>
+                                                        <td>74</td>
+                                                        <td>2446</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.page-content -->
+        </div>
+        <!-- /.main-content -->
+
+
+        <a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index#"
+            id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
+    <!-- /.main-container -->
+
+    <!-- inline scripts related to this page -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var bar = $.cookie('selectionBar');
+            if (bar && bar != 0) {
+                if (true) {
+                    var barObj = document.getElementById(bar);
+                    var pts = $(barObj).parents("li");
+                    for (var i = pts.length - 1; i >= 0; i--) {
+                        if (!$(pts[i]).hasClass("open")) {
+                            $(pts[i]).addClass("open");
+                            $(pts[i]).children("ul").addClass("nav-show").attr("style", "display: block;");
+                        }
+                    }
+                    barObj == null ? barObj = document.getElementById(bar) : barObj.className = "active";
+                    $(barObj).find("a").prepend("<i class='menu-icon fa fa-caret-right'></i>");
+                }
+
+                var lastmenu = $("#" + bar).find("a").first().text();
+                var secmenu = $("#" + bar).parent().parent().find("a").first().text();
+                var firmenu = $("#" + bar).parent().parent().parent().parent().find("a").first().text();
+
+                $("#lastmenu").html(lastmenu.replace(/(^\s*)|(\s*$)/g, ""));
+                $("#lastmenu").attr("menuid", bar);
+                $("#secmenu").html(secmenu.replace(/(^\s*)|(\s*$)/g, ""));
+                $("#secmenu").attr("menuid", $("#" + bar).parent().parent().attr("id"));
+                $("#firmenu").html(firmenu.replace(/(^\s*)|(\s*$)/g, ""));
+                $("#firmenu").attr("menuid", $("#" + bar).parent().parent().parent().parent().attr("id"));
+            } else {
+                $("#lastmenu").remove();
+                $("#secmenu").remove();
+                $("#firmenu").remove();
+            }
+        });
+
+        function ckickTopMenu(obj) {
+            if ($(obj).attr("menuid")) {
+                var menuid = $(obj).attr("menuid");
+                if ($("#" + menuid + " a:eq(0)").hasClass("dropdown-toggle")) {
+                    if ($("#" + menuid).parents('.nav-list li').size() > 0) {
+                        if ($("#" + menuid).parents('.nav-list li:eq(0)').hasClass("open")) {
+                            $("#" + menuid + " a").trigger("click");
+                        } else {
+                            $("#" + menuid).parents('.nav-list li').find("a:eq(0)").trigger("click");
+                            if (!$("#" + menuid).hasClass("open")) {
+                                $("#" + menuid + " a").trigger("click");
+                            }
+                        }
+                    } else {
+                        $("#" + menuid + " a:eq(0)").trigger("click");
+                    }
+                } else {
+                    window.location.href = $("#" + menuid + " a:eq(0)").attr("href");
+                }
+            }
+        }
+
+
+        function toSelect(obj) {
+            $.cookie('selectionBar', obj.id, {
+                path: '/'
+            });
+        }
+
+        function removeCookie() {
+            $.cookie('JSESSIONID', null);
+        }
+        // 			$(function() {
+        // 				$('select').chosen({allow_single_deselect:true});
+        // 			});
+
+        function addslidersModel(id, width) {
+            var modal = '<div id="' + id + '" class="modal right fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1">\
+	            <div class="modal-dialog">\
+	                <div class="modal-content">\
+	                    <div class="center">\
+                            <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+                        </div>\
+	                </div>\
+	            </div>\
+	        </div>';
+            var modal = $(modal).appendTo('body');
+            $(".modal-dialog").css("width", width);
+            return modal;
+        }
+        function openWorkRestSchedule() {
+            var modal = addslidersModel("work_rest_schedule_modal", "60%");
+            var url = "/main/queryRestSchedule";
+            modal.modal({
+                remote: url
+            }).on('hide.bs.modal', function () {
+                modal.remove();
+            });
+        }
+    </script>
+    <!-- inline scripts related to this page -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var bar = $.cookie('selectionBar');
+            if (bar && bar != 0) {
+                if (true) {
+                    var barObj = document.getElementById(bar);
+                    var pts = $("#" + bar).parents("li");
+                    for (var i = 0; i < pts.length; i++) {
+                        pts[i].className = "active open";
+                    }
+                    barObj == null ? barObj = document.getElementById(bar) : barObj.className = "active";
+                    $(barObj).find("a").prepend("<i class='menu-icon fa fa-caret-right'></i>");
+                }
+
+                var lastmenu = $("#" + bar).find("a").first().text();
+                var secmenu = $("#" + bar).parent().parent().find("a").first().text();
+                var firmenu = $("#" + bar).parent().parent().parent().parent().find("a").first().text();
+
+                $("#lastmenu").html(lastmenu.replace(/(^\s*)|(\s*$)/g, ""));
+                $("#secmenu").html(secmenu.replace(/(^\s*)|(\s*$)/g, ""));
+                $("#firmenu").html(firmenu.replace(/(^\s*)|(\s*$)/g, ""));
+            } else {
+                $("#lastmenu").remove();
+                $("#secmenu").remove();
+                $("#firmenu").remove();
+            }
+        });
+
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+        function toSelect(obj) {
+            $.cookie('selectionBar', obj.id, {
+                path: '/'
+            });
+        }
+
+        function removeCookie() {
+            $.cookie('JSESSIONID', null);
+        }
+
+        /* function openLayIM() {
+            if ($('.layui-layim-close').size() > 0) {
+                $('.layui-layim-close').trigger('click');
+            }
+        }
+        function closeLayIM(){
+            if ($('.layui-layer-close').size() > 0) {
+                $('.layui-layer-close').trigger('click');
+            }
+        }*/
+    </script>
+
+
+</body>
+<div style="all: initial;">
+    <div id="__hcfy__" style="all: initial;"></div>
+</div>
+
+</html>
