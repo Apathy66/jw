@@ -1087,7 +1087,7 @@
 				}
 			},
 			error: function () {
-				urp.alert("获取欠费信息失败！");
+				// urp.alert("获取欠费信息失败！");
 			}
 		});
 	}
@@ -1157,7 +1157,7 @@
 				}
 			},
 			error: function () {
-				urp.alert("获取通知详情失败！");
+				// urp.alert("获取通知详情失败！");
 			}
 		});
 	}
@@ -1213,7 +1213,7 @@
 				}
 			},
 			error: function () {
-				urp.alert("代办列表查询失败！");
+				// urp.alert("代办列表查询失败！");
 			}
 		});
 	}
@@ -1269,7 +1269,7 @@
 				$("#personalApplication").html(tcont);
 			},
 			error: function () {
-				urp.alert("开放的可申请业务查询失败！");
+				// urp.alert("开放的可申请业务查询失败！");
 			}
 		});
 	}
@@ -1353,7 +1353,7 @@
 				drawPercent();
 			},
 			error: function () {
-				urp.alert("学业信息查询失败！");
+				// urp.alert("学业信息查询失败！");
 			}
 		});
 	}
@@ -1391,7 +1391,7 @@
 			},
 			error: function (XMLHttpRequest) {
 				if (XMLHttpRequest.status != '0') {
-					urp.alert("通知列表查询失败！");
+					// urp.alert("通知列表查询失败！");
 				}
 
 			}
@@ -1485,7 +1485,7 @@
 				}
 			},
 			error: function (xhr) {
-				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+				// urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
 			}
 		});
 	}
@@ -1536,7 +1536,7 @@
 				$("#warning_div_model").html(divInfo);
 			},
 			error: function (xhr) {
-				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+				// urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
 			}
 		});
 	}
@@ -1691,7 +1691,7 @@
 			},
 			error: function (XMLHttpRequest) {
 				if (XMLHttpRequest.status != '0') {
-					urp.alert("通知列表查询失败！");
+					// urp.alert("通知列表查询失败！");
 				}
 
 			}
@@ -1764,7 +1764,7 @@
 				layer.alert("您的GPA为"+ d.data);
 			},
 			error: function (xhr) {
-				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+				// urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
 			},
 			complete: function () {
 				layer.close(index);
@@ -1800,7 +1800,7 @@
 				$('#main-calendar').fullCalendar('changeView', "agendaWeek");
 			},
 			error: function (xhr) {
-				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+				// urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
 			},
 			complete: function () {
 				layer.close(index);
@@ -1964,9 +1964,9 @@
 					});
 				}
 			},
-			error: function () {
-				urp.alert("获取信息失败！");
-			}
+			// error: function () {
+			// 	urp.alert("获取信息失败！");
+			// }
 		});
 	}
 
@@ -1983,13 +1983,13 @@
 					if (data.result == "ok") {
 						layer.close(index);
 					} else {
-						urp.alert("处理提示消息失败！");
+						// urp.alert("处理提示消息失败！");
 					}
 				}
 			},
-			error: function () {
-				urp.alert("处理提示信息失败！");
-			}
+			// error: function () {
+			// 	urp.alert("处理提示信息失败！");
+			// }
 		});
 	}
 
@@ -2026,7 +2026,7 @@
 				}
 			},
 			error: function () {
-				urp.alert("获取常用文件列表失败！");
+				// urp.alert("获取常用文件列表失败！");
 			}
 		});
 	}
