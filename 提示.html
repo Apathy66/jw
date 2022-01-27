@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+
+	<title>提示</title>
+	<link rel="shortcut icon" href="http://jwstudent.lnu.edu.cn/img/icon/favicon.ico" type="image/x-icon">
+	<meta name="description" content="overview &amp; stats">
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="./提示_files/bootstrap.min.css">
+	<link rel="stylesheet" href="./提示_files/xk.css">
+
+	
+
+	<link rel="stylesheet" href="./提示_files/font-awesome.min.css">
+
+	<link rel="stylesheet" href="./提示_files/iconfont.css">
+
+	<!-- text fonts -->
+	
+	
+
+	<!-- ace styles -->
+	
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="/assets/css/ace-part2.min.css"/>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="/assets/css/ace-ie.min.css"/>
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="./提示_files/ace-extra.min.js.下载"></script>
+
+	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+	<!--[if lte IE 8]>
+	<script src="/assets/js/html5shiv.min.js"></script>
+	<script src="/assets/js/respond.min.js"></script>
+	<![endif]-->
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+	<script src="./提示_files/jquery-3.4.1.min.js.下载"></script>
+	<script src="./提示_files/jquery-migrate-3.1.0.min.js.下载"></script>
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+	<script src="/js/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+	</script>
+	<script src="./提示_files/bootstrap.min.js.下载"></script>
+
+	<script src="./提示_files/jquery.ui.touch-punch.min.js.下载"></script>
+
+
+	<!-- ace scripts -->
+	
+	<script src="./提示_files/ace.all.min.js.下载"></script>
+
+	<!-- commoncss -->
+	<link rel="stylesheet" href="./提示_files/commoncss.css" type="text/css">
+	<!-- commoncss -->
+
+	<script type="text/javascript" src="./提示_files/jquery.cookie.js.下载"></script>
+
+	<!-- alert -->
+	
+	<script type="text/javascript" src="./提示_files/layer.js.下载"></script><link rel="stylesheet" href="./提示_files/layer.css" id="layui_layer_skinlayercss" style="">
+	<!-- alert -->
+	<script type="text/javascript" src="./提示_files/urpjs.js.下载"></script>
+	
+	<!-- urp-ajax -->
+	<script type="text/javascript" src="./提示_files/urpajax.js.下载"></script>
+	<!-- urp-ajax -->
+	<script type="text/javascript">
+		$(function () {
+			
+			if (false) {
+				var showResetpass = $.cookie('showResetpass');
+				if (true) {
+					window.location.href = "/forcereset";
+				} else {
+					if (showResetpass == null) {
+						$.cookie('showResetpass', "0");
+						var bar = $.cookie('selectionBar');
+						$("#view-table .modal-dialog").css("width", "60%");
+						$('#view-table').modal({
+							remote: "/template/forcereset?modal=1",
+							backdrop: "static",
+							keyboard: false
+						}).on("hidden.bs.modal", function () {
+							$("#view-table .modal-dialog").css("width", "60%");
+							$("#view-table .modal-content").html('<div class="center">\
+				                <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+				            </div>');
+							$(this).removeData("bs.modal");
+						});
+					}
+				}
+			}
+
+			/*//websocket方法
+			 var socket = new websocket($('#userId').val());
+			 layui.use('layim', function (layim) {
+			 //基础配置
+			 layim.config({
+			 init: {
+			 url: '/main/queryUserList' //接口地址（返回的数据格式见下文）
+			 , type: 'post' //默认get，一般可不填
+			 , data: {
+			 //code: websocket.code
+			 }//额外参数
+			 } //获取主面板列表信息，下文会做进一步介绍
+
+			 //获取群员接口（返回的数据格式见下文）
+			 /!* , members: {
+			 url: '/main/queryMembers' //接口地址（返回的数据格式见下文）
+			 , type: 'get' //默认get，一般可不填
+			 , data: {
+			 //code: websocket.code
+			 } //额外参数
+			 },
+			 min: true, *!/
+			 });
+
+			 layim.on('ready', function (options) {
+			 //console.info(options);
+			 $.ajax({
+			 url: "/main/doSendInfo",
+			 type: "post",
+			 data: null,
+			 dataType: "json",
+			 success: function (d) {
+			 },
+			 error: function () {
+			 }
+			 });
+			 });
+
+			 socket.init({
+			 onopen: function (msg) {
+			 console.log("连接成功");
+			 },
+			 onmessage: function (res) {
+			 console.log("接收到消息");
+			 //res = JSON.parse(res);
+			 if (res.type === 'TYPE_TEXT_MESSAGE') {
+			 layim.getMessage(res.msg); //res.data即你发送消息传递的数据（阅读：监听发送的消息）
+			 } else if (res.type == 'addList') {
+			 $.each(res.list, function (i, v) {
+			 layim.addList(v); //如果是在iframe页，如LayIM设定的add面板，则为 parent.layui.layim.addList(data);
+			 });
+			 }
+			 }
+			 });
+
+			 //监听发送消息
+			 layim.on('sendMessage', function (data) {
+			 console.log(data);
+			 var msg = JSON.stringify(data);
+
+			 socket.send(msg);
+
+			 });
+
+			 //监听在线状态的切换事件
+			 layim.on('online', function (data) {
+			 console.log(data);
+			 });
+
+			 //layim建立就绪
+			 layim.on('ready', function (res) {
+			 closeLayIM();
+			 });
+
+			 //监听查看群员
+			 layim.on('members', function (data) {
+			 console.log(data);
+			 });
+
+			 //监听聊天窗口的切换，每次窗口打开或切换，即更新对方的状态（是否在线）
+			 layim.on('chatChange', function (res) {
+			 var type = res.data.type;
+			 if (type === 'friend') {
+			 //判断好友是否离线
+			 if (layui.jquery("#layim-friend" + res.data.id).hasClass('layim-list-gray'))
+			 layim.setChatStatus('<span style="color:#FF5722;">[离线]</span>'); //模拟标注好友在线状态
+			 else
+			 layim.setChatStatus('<span style="color:#FF5722;"></span>');
+			 } else if (type === 'group') {
+			 }
+			 });
+			 });*/
+
+		});
+	</script>
+	<style type="text/css">
+		/*.layui-layim-close {
+            display: none;
+        }*/
+	</style>
+	
+
+
+<script type="text/javascript">
+	function closeaApplyModel(){
+		$("#view-table").modal("hide");
+	}
+</script>
+
+
+</head>
+<body class="no-skin">
+
+<!-- 查看详情专用 -->
+<div class="modal fade" id="view-table" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:60%;">
+		<div class="modal-content">
+			<div class="center">
+				<span class="view-pre-loading"></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 查看详情专用 -->
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+	<script type="text/javascript">
+		try {
+			ace.settings.check('navbar', 'fixed')
+		} catch (e) {
+		}
+	</script>
+
+	<div class="navbar-container" id="navbar-container">
+
+		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+			<span class="sr-only">Toggle sidebar</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+
+		<div class="navbar-header pull-left">
+			<a href="http://jwstudent.lnu.edu.cn/" class="navbar-brand" id="0" onclick="toSelect(this);">
+				<small style="font-weight:700;font-family:微软雅黑">
+					<!--
+					<i class="fa fa-leaf"></i>
+					Ace Admin
+					 -->
+					
+					URP高校教学管理与服务平台
+				</small>
+			</a>
+		</div>
+
+		<div class="navbar-buttons navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+				<li class="green" style="text-align: center">
+					<div class="intellegenceUDiv" style="z-index:1" id="intellegenceUDiv">
+						<div style="height:100%; width:32px; display:inline-block;
+									 position:absolute;line-height:100%;left:-32px;
+									 background-color:#777;cursor:pointer; " id="clickdiv" onclick="changeInfo()">
+							<i class="fa fa-search white" style="margin-top: 50%;" id="clicki"></i>
+						</div>
+					</div>
+					<div id="form-search" class="nav-search" style="width: 0px; right: -20px; margin-top: 8px; margin-right: 20px; background-color: rgba(0, 0, 0, 0); z-index: -1;">
+						<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="查找功能..." class="nav-search-input" id="search-input" autocomplete="off">
+								<i class="ace-icon fa fa-search blue"></i>
+							</span>
+						</form>
+					</div>
+				</li>
+				
+
+				
+				<!-- 展示当前的学期季度信息 -->
+				<li class="light-red" style="text-align: center">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" onclick="SchoolCalendar()">
+						<i class="ace-icon fa fa-calendar"></i>
+
+
+当前处于假期时间
+					</a>
+				</li>
+				
+				
+				
+				<li class="light-blue" style="text-align: center">
+					<a data-toggle="dropdown" href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+						<img class="nav-user-photo" src="./提示_files/man.png" onerror="this.src=&#39;/assets/avatars/user.jpg&#39;" alt="Jason&#39;s Photo">
+						<span class="user-info">
+							<small>欢迎您，</small>
+							
+
+
+刘展昊
+						</span>
+						<i class="ace-icon fa fa-caret-down"></i>
+					</a>
+					<input type="hidden" id="userId" value="
+
+
+191492216
+">
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="http://jwstudent.lnu.edu.cn/" title="主页" onclick="toSelect(this);">
+								<i class="ace-icon fa fa-home"></i>首页
+							</a>
+						</li>
+
+						<li>
+							<a href="javascript:changePassword(&#39;/student/rollManagement/personalInfoUpdate/updatePassword&#39;)">
+								<i class="ace-icon fa fa-user"></i>
+								修改密码
+							</a>
+						</li>
+
+						<li class="divider"></li>
+
+						<li>
+							<a id="logout" href="http://jwstudent.lnu.edu.cn/logout" title="退出系统">
+								<i class="ace-icon fa fa-power-off"></i>
+								注销
+							</a>
+						</li>
+					</ul>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<!-- /.navbar-container -->
+</div>
+
+<div class="main-container" id="main-container">
+	<script type="text/javascript">
+
+		function changeInfo() {
+			$("#form-search").animate({width: '152px', right: '22px'});
+		}
+		$(document).click(function (e) {
+			var id = $(e.target).attr("id");
+			if (id == "clickdiv" || id == "clicki" || id == "search-input") {
+
+			} else {
+				$("#form-search").animate({width: '0px', right: '-20px'});
+			}
+		})
+		try {
+			ace.settings.check('main-container', 'fixed')
+		} catch (e) {
+		}
+
+		function SchoolCalendar() {
+			$(".modal-content").html("<iframe width='100%' style='width:100%; min-height:600px; height:100%; overflow: hidden;' src='/indexCalendar' ></iframe>");
+			$("#view-table").modal().show().on("hidden.bs.modal", function () {
+				$(this).removeData("bs.modal");
+			});
+		}
+
+		var isMenuToDeal = true;
+
+		function rootMenuClick(obj) {
+			if (isMenuToDeal && !$(obj).hasClass("open")) {
+				$.each($(obj).find(".hsub"), function () {
+					if ($(this).hasClass("open")) {
+						isMenuToDeal = false;
+					}
+				});
+			} else {
+				isMenuToDeal = false;
+			}
+
+			if (isMenuToDeal) {
+				var firobj = $(obj).children("ul").children("li").first();
+				firobj.addClass("open");
+				$(firobj).children("ul").css("display", "block");
+			} else {
+				isMenuToDeal = true;
+			}
+		}
+
+		function stopHere(e) {
+			isMenuToDeal = false;
+		}
+
+		/*菜单上的搜索框*/
+		$(document).ready(function () {
+			var obj_lis = $("#menus").find("li > ul > li > ul > li");
+			var obj_menus = new Array();
+			for (i = 0; i < obj_lis.length; i++) {
+				obj_menus[i] = $.trim($(obj_lis[i]).find("a:first").text());
+			}
+			try {
+				$("#search-input").bs_typeahead({
+					source: obj_menus,
+					updater: function (a) {
+						for (i = 0; i < obj_lis.length; i++) {
+							if (a == $.trim($(obj_lis[i]).find("a:first").text())) {
+								$.cookie('selectionBar', obj_lis[i].id, {
+									path: '/'
+								});
+								window.location.href = $(obj_lis[i]).find("a:first").attr("href");
+								break;
+							}
+						}
+						return a;
+					}
+				})
+			} catch (a) {
+			}
+		});
+
+		function changePassword(url) {
+			///student/rollManagement/personalInfoUpdate/updatePassword
+			$('#view-table').modal({
+				remote: url
+			}).on("hidden.bs.modal", function () {
+				/*$("div").remove(".widget-box");*/
+				$(this).removeData("bs.modal");
+			}).css({
+				width: 'auto'
+			});
+		}
+
+	</script>
+
+	<style type="text/css">
+		.sidebar > .nav-search {
+			position: static;
+			background-color: #FAFAFA;
+			border-bottom: 1px solid #DDD;
+			text-align: center;
+			height: 35px;
+			padding-top: 0px;
+		}
+
+		.sidebar > .nav-search .nav-search-input {
+			width: 162px !important;
+			border-radius: 5px !important;
+			max-width: 162px !important;
+			opacity: 1 !important;
+			filter: alpha(opacity=100) !important;
+		}
+	</style>
+	<div id="sidebar" class="sidebar responsive sidebar-fixed">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('sidebar', 'fixed')
+			} catch (e) {
+			}
+		</script>
+
+		<div style="position: relative;"><div class="nav-wrap"><div style="position: relative; top: 0px; transition-property: top; transition-duration: 0.2s;"><ul class="nav nav-list" id="menus">
+			
+			<li class="hsub" id="1181690" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-tachometer"></i>
+					<span class="menu-text">个人管理
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu" onclick="stopHere();">
+					
+					<li class="hsub" id="1188620">
+						<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							学籍管理
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu">
+							
+							<li class="" id="1183421" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/rollManagement/rollInfo/index">&nbsp;&nbsp;
+									学生学籍信息
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="" id="1183422" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/rollManagement/personalInfoUpdate/index">&nbsp;&nbsp;
+									个人信息修改
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							
+						</ul>
+
+						
+					</li>
+					
+					
+					
+				</ul>
+				
+			</li>
+			
+			<li class="hsub open" id="82020" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-desktop"></i>
+					<span class="menu-text">选课管理
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu nav-show" onclick="stopHere();" style="display: block;">
+					
+					<li class="hsub open" id="1293220">
+						<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							选课管理
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu nav-show" style="display: block;">
+							
+							<li class="" id="1293217" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelectNotice/index">&nbsp;&nbsp;
+									选课公告
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							
+							
+						</ul>
+
+						
+					</li>
+					
+				
+					
+				</ul>
+				
+			</li>
+			
+			
+			
+			<li class="hsub" id="1377620" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-calendar"></i>
+					<span class="menu-text">综合查询
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu" onclick="stopHere();">
+					
+					<li class="hsub" id="1377621">
+						<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							成绩查询
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu">
+							
+							
+							<li class="" id="1443374" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/unpassedScores/index">&nbsp;&nbsp;
+									不及格成绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="" id="1443375" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index">&nbsp;&nbsp;
+									本学期成绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+						
+						</ul>
+
+						
+					</li>
+					
+					
+					
+				</ul>
+				
+			</li>
+			
+			<li class="hsub" id="1423377" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-picture-o"></i>
+					<span class="menu-text">考务管理
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu" onclick="stopHere();">
+					
+					<li class="hsub" id="1423378">
+						<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							考务管理
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu">
+							
+							<li class="" id="1423381" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/examinationManagement/examGrade/index">&nbsp;&nbsp;
+									考试成绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+						</ul>
+
+						
+					</li>
+					
+				</ul>
+				
+			</li>
+			
+
+		</ul></div></div><div class="ace-scroll nav-scroll"><div class="scroll-track" style="display: none;"><div class="scroll-bar" style="top: 0px; transition-property: top; transition-duration: 0.13s;"></div></div><div class="scroll-content" style=""><div></div></div></div></div>
+		<!-- /.nav-list -->
+
+		<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="z-index: 1;">
+			<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+		</div>
+
+		<script type="text/javascript">
+			try {
+				ace.settings.check('sidebar', 'collapsed')
+			} catch (e) {
+			}
+		</script>
+	</div>
+
+	<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try {
+					ace.settings.check('breadcrumbs', 'fixed')
+				} catch (e) {
+				}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					首页
+				</li>
+				<li class="active" id="firmenu">选课管理</li>
+				<li class="active" id="secmenu">选课管理</li>
+				<li class="active" id="lastmenu">选课</li>
+			</ul>
+			<!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content" id="page-content-template" style="padding:12px;">
+
+			
+	<div class="alert alert-block alert-danger">
+		<button type="button" class="close" data-dismiss="alert" onclick="closeaApplyModel();return false;">
+			<i class="ace-icon fa fa-times"></i>
+		</button>
+		<i class="ace-icon fa fa-exclamation-triangle red"></i>
+		对不起，当前为非选课阶段！
+	</div>
+
+		</div>
+		<!-- /.page-content -->
+	</div>
+	<!-- /.main-content -->
+
+
+	<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/courseSelect/index#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
+</div>
+<!-- /.main-container -->
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var bar = $.cookie('selectionBar');
+		if (bar && bar != 0) {
+			if (true) {
+				var barObj = document.getElementById(bar);
+				var pts = $(barObj).parents("li");
+				for (var i = pts.length - 1; i >= 0; i--) {
+					if (!$(pts[i]).hasClass("open")) {
+						$(pts[i]).addClass("open");
+						$(pts[i]).children("ul").addClass("nav-show").attr("style", "display: block;");
+					}
+				}
+				barObj == null ? barObj = document.getElementById(bar) : barObj.className = "active";
+				$(barObj).find("a").prepend("<i class='menu-icon fa fa-caret-right'></i>");
+			}
+
+			var lastmenu = $("#" + bar).find("a").first().text();
+			var secmenu = $("#" + bar).parent().parent().find("a").first().text();
+			var firmenu = $("#" + bar).parent().parent().parent().parent().find("a").first().text();
+
+			$("#lastmenu").html(lastmenu.replace(/(^\s*)|(\s*$)/g, ""));
+			$("#secmenu").html(secmenu.replace(/(^\s*)|(\s*$)/g, ""));
+			$("#firmenu").html(firmenu.replace(/(^\s*)|(\s*$)/g, ""));
+		} else {
+			$("#lastmenu").remove();
+			$("#secmenu").remove();
+			$("#firmenu").remove();
+		}
+
+		$('#logout').click(function () {
+			$.cookie('JSESSIONID', null);
+		});
+	});
+
+	var sUserAgent = navigator.userAgent.toLowerCase();
+	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+	var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+	var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+	var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+	var bIsAndroid = sUserAgent.match(/android/i) == "android";
+	var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+	function ckickTopMenu(obj) {
+		if ($(obj).attr("menuid")) {
+			var menuid = $(obj).attr("menuid");
+			if ($("#" + menuid + " a:eq(0)").hasClass("dropdown-toggle")) {
+				if ($("#" + menuid).parents('.nav-list li').size() > 0) {
+					if ($("#" + menuid).parents('.nav-list li:eq(0)').hasClass("open")) {
+						$("#" + menuid + " a").trigger("click");
+					} else {
+						$("#" + menuid).parents('.nav-list li').find("a:eq(0)").trigger("click");
+						if (!$("#" + menuid).hasClass("open")) {
+							$("#" + menuid + " a").trigger("click");
+						}
+					}
+				} else {
+					$("#" + menuid + " a:eq(0)").trigger("click");
+				}
+			} else {
+				window.location.href = $("#" + menuid + " a:eq(0)").attr("href");
+			}
+		}
+	}
+
+	function toSelect(obj) {
+		$.cookie('selectionBar', obj.id, {
+			path: '/'
+		});
+	}
+
+	/*function openLayIM() {
+	 if ($('.layui-layim-close').size() > 0) {
+	 $('.layui-layim-close').trigger('click');
+	 }
+	 }*/
+
+	function addslidersModel(id, width) {
+		var modal = '<div id="' + id + '" class="modal right fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1">\
+	            <div class="modal-dialog">\
+	                <div class="modal-content">\
+	                    <div class="center">\
+                            <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+                        </div>\
+	                </div>\
+	            </div>\
+	        </div>';
+		var modal = $(modal).appendTo('body');
+		$(".modal-dialog").css("width", width);
+		return modal;
+	}
+	function openWorkRestSchedule() {
+		var modal = addslidersModel("work_rest_schedule_modal", "60%");
+		var url = "/main/queryRestSchedule";
+		modal.modal({
+			remote: url
+		}).on('hide.bs.modal', function () {
+			modal.remove();
+		});
+	}
+	/*function closeLayIM(){
+	 console.info($('.layui-layer-close').size())
+	 if ($('.layui-layer-close').size() > 0) {
+	 $('.layui-layer-close').trigger('click');
+	 }
+	 }*/
+</script>
+
+
+</body></html>

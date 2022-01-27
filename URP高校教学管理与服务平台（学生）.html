@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+
+	<title>URP高校教学管理与服务平台（学生）</title>
+	<link rel="shortcut icon" href="http://jwstudent.lnu.edu.cn/img/icon/favicon.ico" type="image/x-icon">
+	<meta name="description" content="overview &amp; stats">
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/bootstrap.min.css">
+	<link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/xk.css">
+
+	
+
+	<link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/font-awesome.min.css">
+
+	<link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/iconfont.css">
+
+	<!-- text fonts -->
+	
+	
+
+	<!-- ace styles -->
+	
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="/assets/css/ace-part2.min.css"/>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="/assets/css/ace-ie.min.css"/>
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="./URP高校教学管理与服务平台（学生）_files/ace-extra.min.js.下载"></script>
+
+	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+	<!--[if lte IE 8]>
+	<script src="/assets/js/html5shiv.min.js"></script>
+	<script src="/assets/js/respond.min.js"></script>
+	<![endif]-->
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+	<script src="./URP高校教学管理与服务平台（学生）_files/jquery-3.4.1.min.js.下载"></script>
+	<script src="./URP高校教学管理与服务平台（学生）_files/jquery-migrate-3.1.0.min.js.下载"></script>
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+	<script src="/js/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+	</script>
+	<script src="./URP高校教学管理与服务平台（学生）_files/bootstrap.min.js.下载"></script>
+
+	<script src="./URP高校教学管理与服务平台（学生）_files/jquery.ui.touch-punch.min.js.下载"></script>
+
+
+	<!-- ace scripts -->
+	
+	<script src="./URP高校教学管理与服务平台（学生）_files/ace.all.min.js.下载"></script>
+
+	<!-- commoncss -->
+	<link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/commoncss.css" type="text/css">
+	<!-- commoncss -->
+
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/jquery.cookie.js.下载"></script>
+
+	<!-- alert -->
+	
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/layer.js.下载"></script><link rel="stylesheet" href="./URP高校教学管理与服务平台（学生）_files/layer.css" id="layui_layer_skinlayercss" style="">
+	<!-- alert -->
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/urpjs.js.下载"></script>
+	
+	<!-- urp-ajax -->
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/urpajax.js.下载"></script>
+	<!-- urp-ajax -->
+	<script type="text/javascript">
+		$(function () {
+			
+			if (false) {
+				var showResetpass = $.cookie('showResetpass');
+				if (true) {
+					window.location.href = "/forcereset";
+				} else {
+					if (showResetpass == null) {
+						$.cookie('showResetpass', "0");
+						var bar = $.cookie('selectionBar');
+						$("#view-table .modal-dialog").css("width", "60%");
+						$('#view-table').modal({
+							remote: "/template/forcereset?modal=1",
+							backdrop: "static",
+							keyboard: false
+						}).on("hidden.bs.modal", function () {
+							$("#view-table .modal-dialog").css("width", "60%");
+							$("#view-table .modal-content").html('<div class="center">\
+				                <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+				            </div>');
+							$(this).removeData("bs.modal");
+						});
+					}
+				}
+			}
+
+			/*//websocket方法
+			 var socket = new websocket($('#userId').val());
+			 layui.use('layim', function (layim) {
+			 //基础配置
+			 layim.config({
+			 init: {
+			 url: '/main/queryUserList' //接口地址（返回的数据格式见下文）
+			 , type: 'post' //默认get，一般可不填
+			 , data: {
+			 //code: websocket.code
+			 }//额外参数
+			 } //获取主面板列表信息，下文会做进一步介绍
+
+			 //获取群员接口（返回的数据格式见下文）
+			 /!* , members: {
+			 url: '/main/queryMembers' //接口地址（返回的数据格式见下文）
+			 , type: 'get' //默认get，一般可不填
+			 , data: {
+			 //code: websocket.code
+			 } //额外参数
+			 },
+			 min: true, *!/
+			 });
+
+			 layim.on('ready', function (options) {
+			 //console.info(options);
+			 $.ajax({
+			 url: "/main/doSendInfo",
+			 type: "post",
+			 data: null,
+			 dataType: "json",
+			 success: function (d) {
+			 },
+			 error: function () {
+			 }
+			 });
+			 });
+
+			 socket.init({
+			 onopen: function (msg) {
+			 console.log("连接成功");
+			 },
+			 onmessage: function (res) {
+			 console.log("接收到消息");
+			 //res = JSON.parse(res);
+			 if (res.type === 'TYPE_TEXT_MESSAGE') {
+			 layim.getMessage(res.msg); //res.data即你发送消息传递的数据（阅读：监听发送的消息）
+			 } else if (res.type == 'addList') {
+			 $.each(res.list, function (i, v) {
+			 layim.addList(v); //如果是在iframe页，如LayIM设定的add面板，则为 parent.layui.layim.addList(data);
+			 });
+			 }
+			 }
+			 });
+
+			 //监听发送消息
+			 layim.on('sendMessage', function (data) {
+			 console.log(data);
+			 var msg = JSON.stringify(data);
+
+			 socket.send(msg);
+
+			 });
+
+			 //监听在线状态的切换事件
+			 layim.on('online', function (data) {
+			 console.log(data);
+			 });
+
+			 //layim建立就绪
+			 layim.on('ready', function (res) {
+			 closeLayIM();
+			 });
+
+			 //监听查看群员
+			 layim.on('members', function (data) {
+			 console.log(data);
+			 });
+
+			 //监听聊天窗口的切换，每次窗口打开或切换，即更新对方的状态（是否在线）
+			 layim.on('chatChange', function (res) {
+			 var type = res.data.type;
+			 if (type === 'friend') {
+			 //判断好友是否离线
+			 if (layui.jquery("#layim-friend" + res.data.id).hasClass('layim-list-gray'))
+			 layim.setChatStatus('<span style="color:#FF5722;">[离线]</span>'); //模拟标注好友在线状态
+			 else
+			 layim.setChatStatus('<span style="color:#FF5722;"></span>');
+			 } else if (type === 'group') {
+			 }
+			 });
+			 });*/
+
+		});
+	</script>
+	<style type="text/css">
+		/*.layui-layim-close {
+            display: none;
+        }*/
+	</style>
+	
+    
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/koala.min.1.5.js.下载"></script>
+	<script src="./URP高校教学管理与服务平台（学生）_files/jquery.easypiechart.min.js.下载"></script>
+	<script type="text/javascript" src="./URP高校教学管理与服务平台（学生）_files/browser.js.下载"></script>
+	<link href="./URP高校教学管理与服务平台（学生）_files/fullcalendar.min.css" rel="stylesheet">
+	<link href="./URP高校教学管理与服务平台（学生）_files/fullcalendar.print.min.css" rel="stylesheet" media="print">
+	<style type="text/css">
+		.tabContent h3:nth-child(1):before, .tabContent h3:nth-child(2):before, .tabContent h3:nth-child(3):before, .tabContent h3:nth-child(4):before, .tabContent h3:nth-child(5):before, .tabContent h3:nth-child(6):before, .tabContent h3:nth-child(7):before {
+			width: 30px;
+			height: 30px;
+			top: 2px;
+		}
+
+		.tabContent h3 a:link {
+			padding: 0;
+			line-height: 34px;
+		}
+
+		.widget-toolbar.widget-menu a:focus, .widget-toolbar a:focus {
+			text-decoration: none;
+			outline: 0;
+		}
+
+		.content_wrap {
+			width: initial;
+			margin: 20px;
+		}
+
+		.content_wrap h1 {
+			color: #28a8f1;
+			text-align: center;
+			font-size: 24px;
+			font-family: "宋体";
+			padding-top: 10px;
+		}
+
+		.content_wrap h2 {
+			color: #858585;
+			text-align: right;
+			font-size: 12px;
+			font-family: "宋体";
+			margin: 20px 20px 5px 20px;
+			font-weight: normal;
+		}
+
+		.content_wrap h3 {
+			color: #ababab;
+			font-size: 12px;
+			font-family: "宋体";
+			margin: 20px;
+			font-weight: normal;
+		}
+
+		.content_wrap p {
+			color: #414141;
+			line-height: 27px;
+			font-size: 14px;
+			margin: 10px 0px;
+			text-indent: 2em;
+		}
+
+	</style>
+
+	<style>
+		.studyinfo-width {
+			width: 250px;
+		}
+
+		.click-item {
+			cursor: pointer;
+		}
+
+		#button_close {
+			background-color: #000;
+			opacity: 0.7;
+			height: 30px;
+			width: 30px;
+			border-radius: 15px;
+			text-align: center;
+			padding-bottom: 3px;
+		}
+
+		/*日历上悬浮*/
+		#schedule-hover {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 3px solid #E4EFC9;
+			z-index: 2014;
+			background: white;
+		}
+
+		.promptedmessage-a {
+			position: absolute;
+			top: 0px;
+			z-index: 99;
+			display: table;
+			padding: 5px;
+			background-color: white;
+			border: 3px solid #E4EFC9;
+		}
+
+		.promptedmessage {
+			/*float: left;*/
+			background-color: #D1E17C;
+			border-bottom-width: 5px;
+			padding: 5px;
+			border: 5px solid white;
+			outline: #ddd dashed 2px;
+			/*display: table-row;*/
+		}
+
+		.promptedmessage i {
+			margin-right: 5px;
+		}
+
+		.promptedmessage span {
+			display: table-row;
+			white-space: nowrap;
+		}
+	</style>
+
+
+</head>
+<body class="no-skin">
+
+<!-- 查看详情专用 -->
+<div class="modal fade" id="view-table" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:60%;">
+		<div class="modal-content">
+			<div class="center">
+				<span class="view-pre-loading"></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 查看详情专用 -->
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+	<script type="text/javascript">
+		try {
+			ace.settings.check('navbar', 'fixed')
+		} catch (e) {
+		}
+	</script>
+
+	<div class="navbar-container" id="navbar-container">
+
+		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+			<span class="sr-only">Toggle sidebar</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+
+		<div class="navbar-header pull-left">
+			<a href="http://jwstudent.lnu.edu.cn/" class="navbar-brand" id="0" onclick="toSelect(this);">
+				<small style="font-weight:700;font-family:微软雅黑">
+					<!--
+					<i class="fa fa-leaf"></i>
+					Ace Admin
+					 -->
+					
+					URP高校教学管理与服务平台
+				</small>
+			</a>
+		</div>
+
+		<div class="navbar-buttons navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav" style="">
+				<li class="green" style="text-align: center">
+					<div class="intellegenceUDiv" style="z-index:1" id="intellegenceUDiv">
+						<div style="height:100%; width:32px; display:inline-block;
+									 position:absolute;line-height:100%;left:-32px;
+									 background-color:#777;cursor:pointer; " id="clickdiv" onclick="changeInfo()">
+							<i class="fa fa-search white" style="margin-top: 50%;" id="clicki"></i>
+						</div>
+					</div>
+					<div id="form-search" class="nav-search" style="width:0px;right:-20px;margin-top: 8px; margin-right:20px;background-color:rgba(0,0,0,0);z-index:-1">
+						<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="查找功能..." class="nav-search-input" id="search-input" autocomplete="off">
+								<i class="ace-icon fa fa-search blue"></i>
+							</span>
+						</form>
+					</div>
+				</li>
+				
+
+				
+				<!-- 展示当前的学期季度信息 -->
+				<li class="light-red" style="text-align: center">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="http://jwstudent.lnu.edu.cn/#" onclick="SchoolCalendar()">
+						<i class="ace-icon fa fa-calendar"></i>
+
+
+当前处于假期时间
+					</a>
+				</li>
+				
+				
+				
+				<li class="light-blue" style="text-align: center">
+					<a data-toggle="dropdown" href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+						<img class="nav-user-photo" src="./URP高校教学管理与服务平台（学生）_files/man.png" onerror="this.src=&#39;/assets/avatars/user.jpg&#39;" alt="Jason&#39;s Photo">
+						<span class="user-info">
+							<small>欢迎您，</small>
+							
+
+
+陈宇飞
+						</span>
+						<i class="ace-icon fa fa-caret-down"></i>
+					</a>
+					<input type="hidden" id="userId" value="
+
+
+191492216
+">
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="http://jwstudent.lnu.edu.cn/" title="主页" onclick="toSelect(this);">
+								<i class="ace-icon fa fa-home"></i>首页
+							</a>
+						</li>
+
+						<li>
+							<a href="javascript:changePassword(&#39;/student/rollManagement/personalInfoUpdate/updatePassword&#39;)">
+								<i class="ace-icon fa fa-user"></i>
+								修改密码
+							</a>
+						</li>
+
+						<li class="divider"></li>
+
+						<li>
+							<a id="logout" href="http://jwstudent.lnu.edu.cn/logout" title="退出系统">
+								<i class="ace-icon fa fa-power-off"></i>
+								注销
+							</a>
+						</li>
+					</ul>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<!-- /.navbar-container -->
+</div>
+
+<div class="main-container" id="main-container">
+	<script type="text/javascript">
+
+		function changeInfo() {
+			$("#form-search").animate({width: '152px', right: '22px'});
+		}
+		$(document).click(function (e) {
+			var id = $(e.target).attr("id");
+			if (id == "clickdiv" || id == "clicki" || id == "search-input") {
+
+			} else {
+				$("#form-search").animate({width: '0px', right: '-20px'});
+			}
+		})
+		try {
+			ace.settings.check('main-container', 'fixed')
+		} catch (e) {
+		}
+
+		function SchoolCalendar() {
+			$(".modal-content").html("<iframe width='100%' style='width:100%; min-height:600px; height:100%; overflow: hidden;' src='/indexCalendar' ></iframe>");
+			$("#view-table").modal().show().on("hidden.bs.modal", function () {
+				$(this).removeData("bs.modal");
+			});
+		}
+
+		var isMenuToDeal = true;
+
+		function rootMenuClick(obj) {
+			if (isMenuToDeal && !$(obj).hasClass("open")) {
+				$.each($(obj).find(".hsub"), function () {
+					if ($(this).hasClass("open")) {
+						isMenuToDeal = false;
+					}
+				});
+			} else {
+				isMenuToDeal = false;
+			}
+
+			if (isMenuToDeal) {
+				var firobj = $(obj).children("ul").children("li").first();
+				firobj.addClass("open");
+				$(firobj).children("ul").css("display", "block");
+			} else {
+				isMenuToDeal = true;
+			}
+		}
+
+		function stopHere(e) {
+			isMenuToDeal = false;
+		}
+
+		/*菜单上的搜索框*/
+		$(document).ready(function () {
+			var obj_lis = $("#menus").find("li > ul > li > ul > li");
+			var obj_menus = new Array();
+			for (i = 0; i < obj_lis.length; i++) {
+				obj_menus[i] = $.trim($(obj_lis[i]).find("a:first").text());
+			}
+			try {
+				$("#search-input").bs_typeahead({
+					source: obj_menus,
+					updater: function (a) {
+						for (i = 0; i < obj_lis.length; i++) {
+							if (a == $.trim($(obj_lis[i]).find("a:first").text())) {
+								$.cookie('selectionBar', obj_lis[i].id, {
+									path: '/'
+								});
+								window.location.href = $(obj_lis[i]).find("a:first").attr("href");
+								break;
+							}
+						}
+						return a;
+					}
+				})
+			} catch (a) {
+			}
+		});
+
+		function changePassword(url) {
+			///student/rollManagement/personalInfoUpdate/updatePassword
+			$('#view-table').modal({
+				remote: url
+			}).on("hidden.bs.modal", function () {
+				/*$("div").remove(".widget-box");*/
+				$(this).removeData("bs.modal");
+			}).css({
+				width: 'auto'
+			});
+		}
+
+	</script>
+
+	<style type="text/css">
+		.sidebar > .nav-search {
+			position: static;
+			background-color: #FAFAFA;
+			border-bottom: 1px solid #DDD;
+			text-align: center;
+			height: 35px;
+			padding-top: 0px;
+		}
+
+		.sidebar > .nav-search .nav-search-input {
+			width: 162px !important;
+			border-radius: 5px !important;
+			max-width: 162px !important;
+			opacity: 1 !important;
+			filter: alpha(opacity=100) !important;
+		}
+	</style>
+	<div id="sidebar" class="sidebar responsive sidebar-fixed sidebar-scroll">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('sidebar', 'fixed')
+			} catch (e) {
+			}
+		</script>
+
+		<div style="position: relative;"><div class="nav-wrap" style="max-height: 510.072px;"><div style="position: relative; top: 0px; transition-property: top; transition-duration: 0.2s;"><ul class="nav nav-list" id="menus">
+			
+			<li class="hsub open" id="1181690" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-tachometer"></i>
+					<span class="menu-text">个人管理
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu nav-show" onclick="stopHere();" style="display: block;">
+					
+					<li class="hsub open" id="1188620">
+						<a href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							学籍管理
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu nav-show" style="display: block;">
+							
+							<li class="" id="1183421" onclick="toSelect(this);">
+								<a href="./学籍信息.html">&nbsp;&nbsp;
+									学生学籍信息
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="active" id="1183422" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/rollManagement/personalInfoUpdate/index"><i class="menu-icon fa fa-caret-right"></i>&nbsp;&nbsp;
+									个人信息修改
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							
+						</ul>
+
+						
+					</li>
+					
+					
+
+					
+				</ul>
+				
+			</li>
+			
+			<li class="hsub" id="82020" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-desktop"></i>
+					<span class="menu-text">选课管理
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu" onclick="stopHere();">
+					
+					<li class="hsub" id="1293220">
+				
+						<ul class="submenu">
+							
+							<li class="" id="1293217" onclick="toSelect(this);">
+								<a href="./提示.html">&nbsp;&nbsp;
+									选课公告
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							
+							
+						</ul>
+
+						
+					</li>
+					
+					<li class="hsub" id="82021">
+						<a href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-caret-right"></i>
+							本学期课表
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						
+						<ul class="submenu">
+							
+							<li class="" id="82022" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/thisSemesterCurriculum/index">&nbsp;&nbsp;
+									本学期课表
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							
+						</ul>
+
+						
+					</li>
+					
+				</ul>
+				
+			</li>
+			
+			<li class="hsub" id="1377620" onclick="rootMenuClick(this);">
+				<a href="http://jwstudent.lnu.edu.cn/#" class="dropdown-toggle">
+					<i class="menu-icon fa fa-calendar"></i>
+					<span class="menu-text">综合查询
+					</span>
+					<b class="arrow fa fa-angle-down"></b>
+				</a>
+
+				<b class="arrow"></b>
+				
+				<ul class="submenu" onclick="stopHere();">
+					
+					<li class="hsub" id="1377621">
+					
+
+						<ul class="submenu">
+							
+							<li class="" id="1443374" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/unpassedScores/index">&nbsp;&nbsp;
+									不及格成绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="" id="1443375" onclick="toSelect(this);">
+								<a href="http://jwstudent.lnu.edu.cn/student/integratedQuery/scoreQuery/thisTermScores/index">&nbsp;&nbsp;
+									本学期成绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+						</ul>
+
+						
+					</li>	
+				</ul>
+				
+			</li>
+			
+
+		</ul></div></div><div class="ace-scroll nav-scroll scroll-active"><div class="scroll-track" style="height: 510.072px;"><div class="scroll-bar" style="top: 0px; transition-property: top; transition-duration: 0.13s; height: 391px;"></div></div><div class="scroll-content" style="max-height: 510.072px;"><div style="height: 666px; width: 8px;"></div></div></div></div>
+		<!-- /.nav-list -->
+
+		<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="z-index: 1;">
+			<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+		</div>
+
+		<script type="text/javascript">
+			try {
+				ace.settings.check('sidebar', 'collapsed')
+			} catch (e) {
+			}
+		</script>
+	</div>
+
+	<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try {
+					ace.settings.check('breadcrumbs', 'fixed')
+				} catch (e) {
+				}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					首页
+				</li>
+				<li class="active" id="firmenu">个人管理</li>
+				<li class="active" id="secmenu">学籍管理</li>
+				<li class="active" id="lastmenu">个人信息修改</li>
+			</ul>
+			<!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content" id="page-content-template" style="padding:12px;">
+
+			
+<div class="row">
+	<div class="col-xs-12 self-margin">
+		<div id="warning_div">
+		</div>
+
+		<div class="modal fade" id="warningInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel1"></h4>
+					</div>
+					<div class="modal-body" id="warning_div_model">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-round" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div style="padding-right: 0px !important;" class="col-sm-6 widget-container-col">
+				<div class="widget-box">
+					<div class="widget-header">
+						<h5 class="widget-title">通知</h5>
+
+						<div class="widget-toolbar">
+							<div class="widget-menu">
+								<a data-action="settings" data-toggle="dropdown" onclick="window.location=&#39;/main/noticeList/index&#39;">
+									<i class="ace-icon fa fa-bars"></i>
+								</a>
+								<a data-action="reload" onclick="notices(&#39;refresh&#39;);">
+									<i class="ace-icon fa fa-refresh"></i>
+								</a>
+							</div>
+
+
+						</div>
+					</div>
+
+					<div class="widget-body">
+						<div class="tabContent" id="notices"><h3 style="margin: 0px 0px 6px; height: 35px; background-color: white;" class="click-item"><a href="http://jwstudent.lnu.edu.cn/#" title="关于学生参与2021-2022学年第一学期课堂教学质量评价及学情调查工作的通知" onclick="getNoticeDetail(&quot;D3CC08C5B766217CE055000000000001-14&quot;);return false">关于学生参与2021-2022...<label style="float:right;height:30px;"><i class="ace-icon fa fa-clock-o bigger-110"></i> 2021-12-23</label></a></h3><h3 style="margin: 0px 0px 6px; height: 35px; background-color: white;" class="click-item"><a href="http://jwstudent.lnu.edu.cn/#" title="2021-2022学年第二学期（春季）本科生选课日程安排" onclick="getNoticeDetail(&quot;D39E3D49B6F06237E055000000000001-12&quot;);return false">2021-2022学年第二学期...<label style="float:right;height:30px;"><i class="ace-icon fa fa-clock-o bigger-110"></i> 2021-12-22</label></a></h3></div>
+					</div>
+				</div>
+				<div class="widget-box">
+					<div class="widget-header">
+						<h5 class="widget-title">
+							我的待办任务
+							<span class="badge badge-success" style="padding-top:3px;position:relative;top:-3px;" id="tasknum">1</span>
+						</h5>
+
+						<div class="widget-toolbar">
+							<a href="http://jwstudent.lnu.edu.cn/#" data-action="reload" onclick="needToDo(&#39;refresh&#39;);">
+								<i class="ace-icon fa fa-refresh"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="widget-body">
+						<div class="widget-main">
+							<ul id="tasks" class="item-list ui-sortable"><li class="item-orange clearfix ui-sortable-handle click-item" onclick="gotoMenu(1183426);" style="background-color: rgba(67, 142, 185, 0.1);">辅修方案注册<div class="pull-right action-buttons"><span class="vbar"></span><a href="http://jwstudent.lnu.edu.cn/#" class="blue" onclick="gotoMenu(1183426);return false;"><i class="ace-icon fa fa-flag bigger-130"></i> </a></div></li></ul>
+						</div>
+					</div>
+				</div>
+				<div class="widget-box">
+					<div class="widget-header">
+						<h5 class="widget-title">
+							开放的可申请业务
+						</h5>
+
+						<div class="widget-toolbar">
+							<a href="http://jwstudent.lnu.edu.cn/#" data-action="reload" onclick="showPersonalApplication(&#39;refresh&#39;);">
+								<i class="ace-icon fa fa-refresh"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="widget-body">
+						<div class="widget-main" id="personalApplication"><a href="http://jwstudent.lnu.edu.cn/student/personalManagement/studentChange/index" class="btn btn-app btn-info" style="font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;"><i class="ace-icon fa fa-exchange bigger-230"></i><span style="margin-top: 10px; display: inline-block;">异动申请</span></a></div>
+					</div>
+				</div>
+				<div class="col-xs-12" style="padding: 0px !important;">
+					<div class="widget-container-col">
+						<div class="widget-box">
+							<div class="widget-header">
+								<h5 class="widget-title">
+									<i class="fa fa-cloud-download"></i> 常用下载
+								</h5>
+	
+								<div class="widget-toolbar">
+	
+									<a href="http://jwstudent.lnu.edu.cn/#" data-action="reload" onclick="queryDownFile(&#39;refresh&#39;);">
+										<i class="ace-icon fa fa-refresh"></i>
+									</a>
+								</div>
+							</div>
+	
+							<div class="widget-body">
+								<div class="tabContent" id="all_down"><h3 style="margin:0 0 6px 0;height:35px;" class="click-item"><a href="http://jwstudent.lnu.edu.cn/#" title="结业申请表.doc" onclick="downUsedFile(&quot;CB9A489AD30FC804E055000000000001&quot;);return false">结业申请表.doc<label style="float:right;height:30px;"><i class="ace-icon fa fa-download bigger-110"></i> 点击下载 </label></a></h3></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 widget-container-col" style="padding-left: 0px !important;">
+				<div class="col-xs-12" style="padding-right: 0px !important;">
+					<div class="widget-box">
+						<div class="widget-header">
+							<h5 class="widget-title">学业信息</h5>
+
+							<div class="widget-toolbar">
+								<a href="http://jwstudent.lnu.edu.cn/#" data-action="reload" onclick="learnInfo(&#39;refresh&#39;);">
+									<i class="ace-icon fa fa-refresh"></i>
+								</a>
+							</div>
+
+						</div>
+						<h5 class="alert alert-info" id="sfqr" style="display:none">
+							您还有计费学分未确认，<a href="http://jwstudent.lnu.edu.cn/student/courseSelect/creditCheck/index">去确认</a>
+							<button class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+						</h5>
+
+						<div class="widget-body">
+							<div class="widget-main">
+								<div id="div_1443377" class="infobox infobox-orange2 studyinfo-width click-item" onclick="gotoMenu(&#39;1443377&#39;);">
+									<div class="infobox-icon">
+										<i class="ace-icon fa fa-paste"></i>
+									</div>
+
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="courseNum">58</span>
+
+										<div class="infobox-content">已修读课程门数</div>
+									</div>
+								</div>
+
+								<div id="div_1443374" class="infobox infobox-red studyinfo-width click-item" onclick="gotoMenu(&#39;1443374&#39;);">
+									<div class="infobox-icon">
+										<i class="ace-icon fa fa-ban"></i>
+									</div>
+
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="coursePas">0</span>
+
+										<div class="infobox-content">尚不及格课程门数</div>
+									</div>
+								</div>
+								
+								
+								<div class="infobox infobox-blue2 studyinfo-width" onmouseover="this.style.cursor=&#39;pointer&#39;" onclick="gotoMenu(&#39;1377623&#39;);">
+									<div class="infobox-icon">
+										<i class="ace-icon fa fa-flask"></i>
+									</div>
+
+									<div class="infobox-data">
+										<span class="infobox-text" id="top">我的培养方案</span>
+
+										<div class="infobox-content">
+											<span id="bottom">2019级通信工程培养方案...</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="infobox infobox-blue studyinfo-width">
+									<div class="infobox-icon">
+										<i class="ace-icon fa fa-list-alt"></i>
+									</div>
+
+									<div class="infobox-data">
+										<span style="font-size: 13px;text-align: left;line-height: 21px;color: #555;" id="xy_xnxq">2021-2022春季学期</span>
+
+										<div class="infobox-content">
+											待修读课程
+											<span id="xy_kcms" style="font-size:24px;color:#6fb3e0;cursor:pointer;" lass="click-item" onclick="gotoMenu(&#39;82022&#39;);" title="">12</span>门
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="widget-container-col" id="right-table-div">
+						<div class="widget-box">
+							<div class="widget-header">
+								<h5 class="widget-title">我的日程安排</h5>
+
+								<div class="widget-toolbar">
+									<div class="widget-menu">
+										<a data-action="reload" href="http://jwstudent.lnu.edu.cn/#" onclick="queryMyProctorFull(&#39;refresh&#39;);">
+											<i class="ace-icon fa fa-refresh"></i>
+										</a>
+									</div>
+
+
+								</div>
+							</div>
+							<div id="schedule-hover" style="display: none;">
+								<div id="promptedmessage-div" class="promptedmessage-a">
+								</div>
+							</div>
+
+							<div class="widget-body">
+								<div id="main-calendar" class="fc fc-unthemed fc-ltr"><div class="fc-toolbar fc-header-toolbar"><div class="fc-left"><div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left" aria-label="prev"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button" class="fc-next-button fc-button fc-state-default fc-corner-right" aria-label="next"><span class="fc-icon fc-icon-right-single-arrow"></span></button></div><button type="button" class="fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled" disabled="">今天</button></div><div class="fc-right"><div class="fc-button-group"><button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left">月</button><button type="button" class="fc-agendaWeek-button fc-button fc-state-default fc-state-active">周</button><button type="button" class="fc-agendaDay-button fc-button fc-state-default">日</button><button type="button" class="fc-listMonth-button fc-button fc-state-default fc-corner-right">日程</button></div></div><div class="fc-center"><h2>2022年1月24 – 30日</h2></div><div class="fc-clear"></div></div><div class="fc-view-container" style=""><div class="fc-view fc-agendaWeek-view fc-agenda-view" style=""><table class=""><thead class="fc-head"><tr><td class="fc-head-container fc-widget-header"><div class="fc-row fc-widget-header" style="border-right-width: 1px; margin-right: 21px;"><table class=""><thead><tr><th class="fc-axis fc-widget-header" style="width: 35px;"></th><th class="fc-day-header fc-widget-header fc-mon fc-past" data-date="2022-01-24"><span>周一</span></th><th class="fc-day-header fc-widget-header fc-tue fc-past" data-date="2022-01-25"><span>周二</span></th><th class="fc-day-header fc-widget-header fc-wed fc-past" data-date="2022-01-26"><span>周三</span></th><th class="fc-day-header fc-widget-header fc-thu fc-today" data-date="2022-01-27"><span>周四</span></th><th class="fc-day-header fc-widget-header fc-fri fc-future" data-date="2022-01-28"><span>周五</span></th><th class="fc-day-header fc-widget-header fc-sat fc-future" data-date="2022-01-29"><span>周六</span></th><th class="fc-day-header fc-widget-header fc-sun fc-future" data-date="2022-01-30"><span>周日</span></th></tr></thead></table></div></td></tr></thead><tbody class="fc-body"><tr><td class="fc-widget-content"><div class="fc-day-grid fc-unselectable"><div class="fc-row fc-week fc-widget-content" style="border-right-width: 1px; margin-right: 21px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-axis fc-widget-content" style="width: 35px;"><span>全天</span></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2022-01-24"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2022-01-25"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2022-01-26"></td><td class="fc-day fc-widget-content fc-thu fc-today " data-date="2022-01-27"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2022-01-28"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2022-01-29"></td><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2022-01-30"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><tbody><tr><td class="fc-axis" style="width: 35px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div></div><hr class="fc-divider fc-widget-header"><div class="fc-scroller fc-time-grid-container" style="overflow: hidden scroll; height: 387.495px;"><div class="fc-time-grid fc-unselectable"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-axis fc-widget-content" style="width: 35px;"></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2022-01-24"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2022-01-25"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2022-01-26"></td><td class="fc-day fc-widget-content fc-thu fc-today " data-date="2022-01-27"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2022-01-28"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2022-01-29"></td><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2022-01-30"></td></tr></tbody></table></div><div class="fc-slats"><table class=""><tbody><tr data-time="00:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>00:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="00:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="01:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>01:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="01:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="02:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>02:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="02:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="03:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>03:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="03:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="04:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>04:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="04:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="05:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>05:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="05:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="06:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>06:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="06:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="07:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>07:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="07:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="08:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>08:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="08:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="09:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>09:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="09:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="10:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>10:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="10:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="11:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>11:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="11:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="12:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>12:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="12:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="13:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>13:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="13:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="14:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>14:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="14:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="15:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>15:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="15:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="16:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>16:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="16:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="17:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>17:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="17:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="18:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>18:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="18:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="19:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>19:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="19:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="20:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>20:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="20:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="21:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>21:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="21:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="22:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>22:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="22:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr><tr data-time="23:00:00"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"><span>23:00</span></td><td class="fc-widget-content"></td></tr><tr data-time="23:30:00" class="fc-minor"><td class="fc-axis fc-time fc-widget-content" style="width: 35px;"></td><td class="fc-widget-content"></td></tr></tbody></table></div><hr class="fc-divider fc-widget-header" style="display:none"><div class="fc-content-skeleton"><table><tbody><tr><td class="fc-axis" style="width: 35px;"></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td><td><div class="fc-content-col"><div class="fc-event-container fc-helper-container"></div><div class="fc-event-container"></div><div class="fc-highlight-container"></div><div class="fc-bgevent-container"></div><div class="fc-business-container"></div></div></td></tr></tbody></table></div></div></div></td></tr></tbody></table></div></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="hidden" id="school_id" name="school_id" value="100048">
+
+<!---->
+<div class="modal fade" id="view-notice" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:60%;">
+		<div class="table-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+				<span id="closeModel" class="white">×</span>
+			</button>
+			<i class="fa  fa-info-circle"></i> <font id="modal_title">通知详情</font>
+		</div>
+		<div class="modal-content">
+			<div id="div-notice" style="background-color:white;overflow-y:auto;overflow-x:hidden;">
+				<div class="content_wrap">
+					<h1 id="notice_title"></h1>
+
+					<h2 id="notice_info"></h2>
+
+					<div style="width:96%;border:1px solid #858585; height:1px;margin-left:2%;"></div>
+					<h3 id="notice_content"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./URP高校教学管理与服务平台（学生）_files/moment.min.js.下载"></script>
+<script src="./URP高校教学管理与服务平台（学生）_files/fullcalendar.js.下载"></script>
+<script src="./URP高校教学管理与服务平台（学生）_files/zh-cn.js.下载"></script>
+<script src="./URP高校教学管理与服务平台（学生）_files/lunar.js.下载"></script>
+<script type="text/javascript">
+
+	$(function () {
+		getSelectCourseStatus();
+		drawPercent();
+		setClickMove();
+
+		//判断当前用户是否是第一次登录。
+		isFirstLogin();
+		//培养方案查询
+		getPyfaInfo();
+		//是否强制
+		InformationCollection();
+		//自动刷新通知信息
+		notices('refresh');
+		if ($.isIE() && $.isIE8()) {
+			layer.open({
+				title: '<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>  警告',
+				content: '您使用的ie版本过低，部分功能将无法使用。<br/>建议您使用chrome、火狐等浏览器或升级ie版本到10以上！'
+			});
+		}
+		if ($("#school_id").val() == "100002" || $("#school_id").val() == "100003") {
+			queryArrears();
+		}
+		if ($("#school_id").val() == "100010" || $("#school_id").val() == "100048") {
+			$("#jdcj").hide();
+		}
+
+		fullCalendars();
+
+		queryCxxfTip();
+
+	});
+
+	function queryArrears() {
+		$.ajax({
+			url: "/main/queryArrears",
+			type: "post",
+			dataType: "json",
+			success: function (data) {
+				if (data["count"] != 0) {
+					var rad = "";
+					if ($("#school_id").val() == "100003") {
+
+						var info = "<div style='max-height:300px; overflow: auto;'>";
+						var je = 0;
+						$.each(data["list"], function (i, v) {
+							info += "<p>收费项目名称：" + v.sfxmmc + ",欠费金额：" + v.qfje + "元</p>";
+							je += parseFloat(v.qfje);
+						});
+						info += "</div>";
+						rad = "欠费金额：" + je + "元，请及时缴费,详细信息如下:<br>" + info;
+					} else {
+						rad = "欠费金额：" + data["count"] + "元，请及时缴费";
+					}
+					layer.confirm(rad, {
+						title: '欠费情况提示',
+						btn: ['确定'] //按钮
+					}, function (index, layero) {
+						layer.close(index);
+					});
+				}
+			},
+			error: function () {
+				urp.alert("获取欠费信息失败！");
+			}
+		});
+	}
+
+	var lclass = ["item-orange", "item-red", "item-default", "item-blue", "item-green", "item-gray", "item-pink"];
+
+	function drawPercent() {
+		$('.easy-pie-chart.percentage').each(function () {
+			var $box = $(this).closest('.infobox');
+			var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+			var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
+			var size = parseInt($(this).data('size')) || 50;
+			$(this).easyPieChart({
+				barColor: barColor,
+				trackColor: trackColor,
+				scaleColor: false,
+				lineCap: 'butt',
+				lineWidth: parseInt(size / 10),
+				animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
+				size: size
+			});
+		});
+	}
+
+	function gotoMenu(id, flag) {
+		var obj = $("#" + id);
+		$(obj).find("a")[0].click();
+	}
+
+	function setClickMove() {
+		$(".click-item").mouseover(function () {
+			$(this).css("background-color", "rgba(67,142,185,0.1)");
+		});
+		$(".click-item").mouseout(function () {
+			$(this).css("background-color", "white");
+		});
+	}
+
+	//获取通知详情
+
+	function getNoticeDetail(id) {
+		$.ajax({
+			url: "/main/showNoticeDetail",
+			type: "post",
+			data: {
+				msgId: id
+			},
+			dataType: "json",
+			success: function (d) {
+				var data = d.data;
+				if (data == "error") {
+					urp.alert("通知ID错误或通知已被删除！");
+				} else {
+					var ch = $(window).height();
+					$("#div-notice").css("height", ch - 85);
+					$("#notice_title").html(data[1]);
+					//$("#notice_info").html("发布日期：" + data[4] + "    起止日期：" + data[5] + "/" + data[6]);
+					$("#notice_info").html("发布日期：" + data[4]);
+					if (data[7] == "") {
+						$("#notice_content").html(d.tznr);
+					} else {
+						$("#notice_content").html(d.tznr + "<br><br><br>附件：<a href='/main/noticeDetail/fjxz?tzid=" + data[0] + "'><p>" + (data[7] == null ? "" : data[7]) + "</p></a>");
+					}
+					$("#view-notice").modal().show().on("hidden.bs.modal", function () {
+						$(this).removeData("bs.modal");
+					});
+				}
+			},
+			error: function () {
+				urp.alert("获取通知详情失败！");
+			}
+		});
+	}
+
+	//代办任务
+
+	function needToDo(flag) {
+		if (flag == undefined) {
+			flag = "";
+		}
+		$.ajax({
+			url: "/main/showMyNeedDo",
+			type: "post",
+			data: {
+				flag: flag
+			},
+			dataType: "json",
+			success: function (d) {
+				$("#tasks").html("");
+				var sd = d[0];
+				if (sd) {
+					var num = 0;
+					var tnum = 0;
+					$.map(sd, function (v, i) {
+						var arr = v.split(";");
+						var taskcont = "<li class='" + lclass[num] + " clearfix ui-sortable-handle click-item' onclick='gotoMenu(" + arr[0] + ");'>" + i;
+						if (arr[1]) {
+							var vv = arr[1].split("/");
+							if (vv[0] == 1) {
+								taskcont += vv[1];
+							} else if (vv[0] == 2) {
+								taskcont += " <span class='badge badge-danger'>" + vv[1] + "</span>";
+							} else {
+								var vvv = vv[1].split("~");
+								taskcont += " <span class='badge badge-danger'>" + vvv[0] + "</span> " + vvv[1];
+							}
+						}
+						taskcont += "<div class='pull-right action-buttons'>" + "<span class='vbar'></span>" + "<a href='#' class='blue' onclick='gotoMenu(" + arr[0] + ");return false;'>" + "<i class='ace-icon fa fa-flag bigger-130'></i> " + "</a>" + "</div>" + "</li>";
+
+						$("#tasks").append(taskcont);
+
+						if (num == lclass.length - 1) {
+							num = 0;
+						} else {
+							num++;
+						}
+						tnum++;
+					});
+					$("#tasknum").html(tnum);
+					setClickMove();
+				} else {
+					$("#tasks").append("<div class='alert alert-block alert-success'>" + "<button type='button' class='close' data-dismiss='alert'>" + "<i class='ace-icon fa fa-times'></i>" + "</button>" + "<i class='ace-icon fa fa-info-circle green'></i>" + "暂时没有代办信息(●'◡'●)" + "</div>");
+				}
+			},
+			error: function () {
+				urp.alert("代办列表查询失败！");
+			}
+		});
+	}
+
+
+	function showPersonalApplication(flag) {
+		if (flag == undefined) {
+			flag = "";
+		}
+		$.ajax({
+			url: "/main/showPersonalApplication",
+			type: "post",
+			data: {
+				flag: flag
+			},
+			dataType: "json",
+			success: function (d) {
+				var data = d.data;
+				var tcont = "<a href='/student/personalManagement/studentChange/index' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+						+ "<i class='ace-icon fa fa-exchange bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>异动申请</span></a>";
+				if (data["zzycount"] > 0) {
+					if ($("#school_id").val() == "100036" || $("#school_id").val() == "100038") {
+						tcont += "<a href='/student/ordertransfer/specialty/application/index' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+								+ "<i class='ace-icon fa fa-share-square-o bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>转专业申请</span></a>";
+					} else {
+						tcont += "<a href='/student/personalManagement/studentChange/specialtiesApply' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+								+ "<i class='ace-icon fa fa-share-square-o bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>转专业申请</span></a>";
+					}
+				}
+				if (data["dlflcount"] > 0) {
+					tcont += "<a href='/student/personalManagement/largeClassDiversion/index' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+							+ "<i class='ace-icon fa fa-share-square-o bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>大类分流</span></a>";
+				}
+				if (data["zyffxcount"] > 0) {
+					tcont += "<a href='/student/personalManagement/majorsSplitOther/index' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+							+ "<i class='ace-icon fa fa-share-square-o bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>专业分方向</span></a>";
+				}
+				/* + "<a href='/students/studentsInnovation/apply/countindex' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+				 + "<i class='ace-icon fa fa-lightbulb-o  bigger-230'></i><span style='margin-top: 10px; display: inline-block;'>创新/创业</span></a>"
+				 + "<a href='/students/personalManagement/applyTeacher/index' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+				 + "<i class='ace-icon fa fa-user bigger-230'></i>申请<br>书院导师</a>"; */
+				$.each(data["list"], function (i, v) {
+					var name = v.ywsm;
+					var nameLen = name.length;
+					var selfNameLen = parseInt(nameLen / 2);
+					selfNameLen = selfNameLen % 2 != 0 ? selfNameLen - 1 : selfNameLen;
+					tcont += "<a title='" + name + "' href='" + v.url + "' class='btn btn-app btn-info' style='font-size: 14px; padding: 7px 0; height: 100px; margin-right: 20px;'>"
+							+ "<i class='ace-icon " + v.icon + " bigger-230'></i>"
+							+ (nameLen < 6 ? "<span style='margin-top: 10px; display: inline-block;'>" + name + "</span>"
+									: (nameLen > 12 ? name.substring(0, 6) + "<br>" + name.substring(6, 11) + "..."
+									: (name.substring(0, selfNameLen) + "<br>" + name.substring(selfNameLen, 12)))) + "</a>";
+				})
+				$("#personalApplication").html(tcont);
+			},
+			error: function () {
+				urp.alert("开放的可申请业务查询失败！");
+			}
+		});
+	}
+
+	function toPosition(s, f) {
+		$.ajax({
+			url: "/main/saveIndexValue",
+			type: "post",
+			data: {
+				indexValue: s
+			},
+			success: function () {
+				if (f == "js") {
+					gotoMenu('1423373');
+				} else if (f == "jas") {
+					gotoMenu('1423372');
+				}
+			},
+			error: function () {
+			}
+		});
+	}
+
+	function concatStr(obj) {
+		var str = "";
+		$.each(obj, function (i, v) {
+			if (i != 0) {
+				str += ",";
+			}
+			str += v;
+		});
+		return str;
+	}
+
+	function learnInfo(flag) {
+		if (!flag) {
+			flag = "";
+		}
+		queryWarningStatue();
+		$.ajax({
+			url: "/main/academicInfo",
+			type: "post",
+			data: {
+				flag: flag
+			},
+			dataType: "json",
+			success: function (d) {
+				var sd = d[0];
+				$("#courseNum").html(sd.courseNum);
+				/* + "<span style='font-size:18px;'>+" + sd.courseId.length + "</span>" */
+				$("#coursePas").html(sd.coursePas);
+
+				
+
+				/* $("#needPass").html(100 - parseFloat(sd.percent));
+				 var perCont = "<div class='easy-pie-chart percentage' data-percent='" + sd.percent + "' data-size='46'>" + "<span class='percent' id='percent'>" + sd.percent + "</span>%" + "</div>";
+				 $("#percent").html(perCont); */
+				var arr = sd.zxjxjhh.split("-");
+				var season = "秋季";
+				if (arr[2] == '2') {
+					season = "春季";
+				}
+				$("#xy_xnxq").html(arr[0] + "-" + arr[1] + season + "学期");
+				//$("#xy_kcms").html(sd.courseId.length);
+				$("#xy_kcms").html(sd.courseNum_bxqyxd);
+
+				$("#xy_jss").html(sd.teacherId.length);
+				$("#xy_jss").attr("onclick", "toPosition('" + concatStr(sd.teacherId) + "','js');");
+
+				$("#xy_jass").html(sd.jasId.length);
+				$("#xy_jass").attr("onclick", "toPosition('" + concatStr(sd.jasId) + "','jas');");
+
+				var t_course = concatStr(sd.courseName);
+				$("#xy_kcms").attr("title", t_course);
+
+				var t_teacher = concatStr(sd.teacherName);
+				$("#xy_jss").attr("title", t_teacher);
+
+				var t_jas = concatStr(sd.jasName);
+				$("#xy_jass").attr("title", t_jas);
+				drawPercent();
+			},
+			error: function () {
+				urp.alert("学业信息查询失败！");
+			}
+		});
+	}
+
+	function notices(flag) {
+		if (!flag) {
+			flag = "";
+		}
+		//首页通知
+		$.ajax({
+			url: "/main/showNotice",
+			type: "post",
+			data: {
+				flag: flag
+			},
+			dataType: "json",
+			success: function (d) {
+				$("#notices").html("");
+				if (d.length > 0) {
+					$.each(d, function (i, v) {
+						var cont = "<h3 style='margin:0 0 6px 0;height:35px;' class='click-item'><a href='#' title='" + v[1] + "' onclick='getNoticeDetail(\"" + v[0] + "-" + v[3] + "\");return false'>";
+						if (v[1].length > 15) {
+							cont += v[1].substring(0, 15) + "...";
+						} else {
+							cont += v[1];
+						}
+						cont += "<label style='float:right;height:30px;'>" + "<i class='ace-icon fa fa-clock-o bigger-110'></i> " + v[2] + "</label></a></h3>";
+						$("#notices").append(cont);
+					});
+
+					setClickMove();
+				} else {
+					$("#notices").append("<div class='alert alert-block alert-success'>" + "<button type='button' class='close' data-dismiss='alert'>" + "<i class='ace-icon fa fa-times'></i>" + "</button>" + "<i class='ace-icon fa fa-info-circle green'></i> " + "暂时没有通知信息(●'◡'●)" + "</div>");
+				}
+			},
+			error: function (XMLHttpRequest) {
+				if (XMLHttpRequest.status != '0') {
+					urp.alert("通知列表查询失败！");
+				}
+
+			}
+		});
+	}
+
+	//获取当前选课开关
+
+	function getSelectCourseStatus() {
+		$.ajax({
+			url: "/main/checkSelectCourseStatus",
+			type: "post",
+			dataType: "text",
+			success: function (d) {
+				var data = JSON.parse(d);
+				//console.log(data);
+				if (data.retString != "1") {
+					learnInfo();
+					needToDo();
+					queryWarningStatue();
+					showPersonalApplication();
+					queryDownFile();
+					queryMyProctorFull("refresh");
+					notices();
+					if (data.sfqr == "yes") {
+						$("#sfqr").css("display", "block");
+					} else {
+						$("#sfqr").css("display", "none");
+					}
+				} else {
+					urp.alert("选课期间，当前页面信息不自动刷新，请手动刷新！");
+				}
+				$("#xy_xnxq").text(data.zxjxjhm + "学期");
+				//  $("#school_id").val(data.schoolId);
+			},
+			error: function () {
+			}
+		});
+	}
+
+	function changeTab(id) {
+		if (id == "1" && $("#app-need").css("display") == "none") {
+			$("#app-end").css("display", "none");
+			$("#app-need").css("display", "block");
+		}
+		if (id == "2" && $("#app-end").css("display") == "none") {
+			$("#app-need").css("display", "none");
+			$("#app-end").css("display", "block");
+		}
+	}
+
+
+	function closeWaring() {
+		$("#warning_div").hide();
+	}
+
+	function queryWarningStatue() {
+		$.ajax({
+			url: "/main/queryWarningInfo",
+			type: "post",
+			dataType: "json",
+			success: function (d) {
+				if (d["list"].length != 0) {
+					var divInfo = "<div class='alert alert-info'>";
+					divInfo += "<div id='fsD1' class='focus'>";
+					divInfo += "<div id='D1pic1' class='fPic'>";
+
+					//循环list
+					$.each(d["list"], function (i, v) {
+						divInfo += "<div class='fcon' style='display: none;'>";
+						divInfo += "<img src='' style='opacity: " + i + 1 + "; '>";
+						divInfo += "<span class='' style='margin-top:5px;heigth:20px;'>";
+						divInfo += "<i class='menu-icon fa fa-volume-up fa-2x white'></i>&nbsp;";
+
+						divInfo += "<font size='5' face='arial' color='" + v[3] + "'>你在" + v[2] + "学期被学业预警，详细情况<a target='_self' "
+								+ "style='cursor:pointer;color: " + v[3] + ";text-decoration:underline' onclick='queryWarningInfo(\"" + v[0] + "\",\"" + v[1] + "\",\"" + v[2] + "\",\"" + v[4] + "\",\"" + v[5] + "\")' data-toggle='modal' data-target='#warningInfo'>请查看</a>";
+						divInfo += "</font></span>";
+						divInfo += "</div>";
+					});
+					divInfo += "</div>";
+					divInfo += "<div class='fbg'><div class='D1fBt' id='D1fBt'> ";
+					$.each(d["list"], function (i, v) {
+						divInfo += "<a style='cursor:pointer;' hidefocus='true' target='_self' class='current'><i>" + (i + 1) + "</i></a> ";
+					});
+					divInfo += "</div></div>";
+					divInfo += "<div><button type='button' class='close' data-dismiss='alert' onclick='closeWaring();'><i class='ace-icon fa fa-times'></i></button></div>";
+					divInfo += "</div></div>";
+					$("#warning_div").html(divInfo);
+					JQfast();
+
+				}
+			},
+			error: function (xhr) {
+				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+			}
+		});
+	}
+
+	/*实现跑马灯效果*/
+	function JQfast() {
+		Qfast.add('widgets', {path: "/js/qFast/terminator2.2.min.js", type: "js", requires: ['fx']});
+		Qfast(false, 'widgets', function () {
+			K.tabs({
+				id: 'fsD1',   //焦点图包裹id
+				conId: "D1pic1",  //** 大图域包裹id
+				tabId: "D1fBt",
+				tabTn: "a",
+				conCn: '.fcon', //** 大图域配置class
+				auto: 1,   //自动播放 1或0
+				effect: 'fade',   //效果配置
+				eType: 'click', //** 鼠标事件
+				pageBt: true,//是否有按钮切换页码
+				bns: ['.prev', '.next'],//** 前后按钮配置class
+				interval: 3000  //** 停顿时间
+			})
+		})
+	}
+
+	function queryWarningInfo(yjid, zxjxjhh, zxjxjhm, yjjbmc, wdbqksm) {
+		$.ajax({
+			url: "/main/queryWarningDetailedInfo",
+			type: "post",
+			data: "yjid=" + yjid + "&zxjxjhh=" + zxjxjhh,
+			dataType: "json",
+			success: function (d) {
+				var data = d.data;
+				var modelTitle = "学生预警信息(" + zxjxjhm + ")";
+				$("#myModalLabel1").html(modelTitle);
+				var divInfo = "";
+				divInfo += "<div class='profile-user-info profile-user-info-striped'>";
+				divInfo += "<div class='profile-info-row'>";
+				divInfo += "<div class='profile-info-name'> 未通过原因 </div>";
+				divInfo += "<div class='profile-info-value'>" + wdbqksm + "</div>";
+				divInfo += "</div>";
+				if ($("#school_id").val() != "100025") {
+					divInfo += "<div class='profile-info-row'>";
+					divInfo += "<div class='profile-info-name'> 预警级别 </div>";
+					divInfo += "<div class='profile-info-value'>" + (yjjbmc == null || yjjbmc == "null" ? "" : yjjbmc) + "</div>";
+					divInfo += "</div>";
+				}
+				divInfo += "</div>";
+				$("#warning_div_model").html(divInfo);
+			},
+			error: function (xhr) {
+				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+			}
+		});
+	}
+
+	/* 摸态框居中 */
+	//    function centerModals() {
+	//        $('#warningInfo').each(function (i) {
+	//            var $clone = $(this).clone().css('display', 'block').appendTo('body');
+	//            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+	//            top = top > 0 ? top : 0;
+	//            $clone.remove();
+	//            $(this).find('.modal-content').css("margin-top", top);
+	//        });
+	//    }
+	//    $('#warningInfo').on('show.bs.modal', centerModals);
+	//    $(window).on('resize', centerModals);
+
+	/* function showCloseButton() {
+	 $("#showClose").css('display', 'block');
+	 }
+	 function hideCloseButton() {
+	 $("#showClose").css('display', 'none');
+	 } */
+
+	function isFirstLogin() {
+		$.ajax({
+			url: "/student/rollManagement/personalInfoUpdate/passdIsModified",
+			type: "get",
+			dataType: "json",
+			async: false,
+			success: function (d) {
+				var data = d.data;
+
+				if (d.status != 200) {
+					layer.alert(data.msg, {icon: 5, time: 3000});
+				} else {
+					$("#tokenValue").val(data.token);
+					if (data.result.indexOf("/") != -1) {
+						window.location.href = data.result;
+					} else {
+						if (data.result == "yes") {
+							return;
+						} else {
+							changePassd();
+							return;
+						}
+					}
+				}
+			}
+		});
+	}
+
+	function InformationCollection() {
+		$.ajax({
+			url: "/student/rollManagement/personalInfoUpdate/jhrInformationCollection",
+			type: "get",
+			dataType: "json",
+			async: false,
+			success: function (d) {
+				var data = d.data;
+
+				if (d.status != 200) {
+					layer.alert(data.msg, {icon: 5, time: 3000});
+				} else {
+					$("#tokenValue").val(data.token);
+					if (data.result.indexOf("/") != -1) {
+						window.location.href = data.result;
+					} else {
+						if (data.result == "no" && data.qztxgrxx == "no") {
+							return;
+						} else {
+							changeCollection(data.result, data.qztxgrxx);
+							return;
+						}
+					}
+				}
+			}
+		});
+	}
+
+	function changeCollection(qztxjhrxx, qztxgrxx) {
+		//增加
+		var url = "/student/rollManagement/informationCollection/qztx?qztxjhrxx=" + qztxjhrxx + "&qztxgrxx=" + qztxgrxx;
+		$('#view-table .modal-dialog').css('width', '80%');
+		$('#view-table').modal({
+			remote: url,
+			backdrop: 'static',
+			keyboard: false
+		}).on("hidden.bs.modal", function () {
+			/*$("div").remove(".widget-box");*/
+			$(this).removeData("bs.modal");
+		});
+		$('.modal-backdrop').each(function () {
+			$(this).css('opacity', '0.5');
+		});
+	}
+
+	function changePassd() {
+		//增加
+		var url = "/student/rollManagement/personalInfoUpdate/informationCollection";
+		$('#view-table .modal-dialog').css('width', '60%');
+		$('#view-table').modal({
+			remote: url,
+			backdrop: 'static',
+			keyboard: false
+		}).on("hidden.bs.modal", function () {
+			/*$("div").remove(".widget-box");*/
+			$(this).removeData("bs.modal");
+		});
+		$('.modal-backdrop').each(function () {
+			$(this).css('opacity', '0.5');
+		});
+	}
+
+	//培养方案信息查询
+	function getPyfaInfo() {
+		//首页通知
+		$.ajax({
+			url: "/main/showPyfaInfo",
+			type: "get",
+			dataType: "json",
+			success: function (d) {
+				var count = d.count;
+				var data = d.data;
+				var topStr = "";
+				var bottomStr = "";
+				if (data != null && data != "" && data != undefined) {
+					if (data.length > 1) {
+						for (var i = 0; i < data.length; i++) {
+							if (data[i][1] == "00001") {
+								bottomStr = data[i][0];
+								break;
+							}
+						}
+
+					} else {
+						bottomStr = data[0][0];
+					}
+					if (parseInt(count) >= 2) {
+						topStr = count + "个方案，主修为";
+					} else {
+						topStr = "我的培养方案";
+					}
+				} else {
+					topStr = "您没有培养方案";
+					bottomStr = "";
+				}
+
+				$("#top").text(topStr);
+				$("#bottom").text(bottomStr.substring(0, 13) + "...");
+
+			},
+			error: function (XMLHttpRequest) {
+				if (XMLHttpRequest.status != '0') {
+					urp.alert("通知列表查询失败！");
+				}
+
+			}
+		});
+	}
+
+	function showMoreGPA() {
+		var index;
+		$.ajax({
+			url: "/main/showMoreGPA",
+			type: "post",
+			dataType: "json",
+			async: false,
+			success: function (d) {
+				if (d.data) {
+					var cont = "<div class='modal-header no-padding'>\
+							<div class='table-header'>\
+								<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>\
+									<span class='white'>×</span>\
+								</button>\
+								GPA成绩\
+							</div>\
+						</div><div class='modal-body no-padding'>";
+					cont += "<table class='table table-bordered table-hover'>";
+					cont += "<thead><tr><th>GPA类型</th><th>GPA值</th><th>班级排名</th></tr></thead>";
+					cont += "<tbody>";
+					$.each(d.data, function (i, v) {
+						cont += "<tr>";
+						cont += "<td>" + v[0] + "</td><td>" + (v[1] == null ? "" : v[1]) + "</td><td>" + (v[2] == null ? "" : v[2]) + "</td>";
+						cont += "</tr>";
+					});
+					cont += "</tbody>";
+					cont += "</table></div>";
+					$('#view-table .modal-content').html(cont);
+					$('#view-table .modal-content').css("max-height", "calc(100vh - 71px)");
+					$('#view-table .modal-content').css("overflow", "auto");
+
+					$('#view-table .modal-dialog').css('width', '50%');
+					$('#view-table').modal({
+						backdrop: 'static',
+						keyboard: false
+					}).on("hidden.bs.modal", function () {
+						$('#view-table .modal-dialog').css('width', '60%');
+						/*$("div").remove(".widget-box");*/
+						$(this).removeData("bs.modal");
+					});
+					$('.modal-backdrop').each(function () {
+						$(this).css('opacity', '0.5');
+					});
+				} else {
+					urp.alert("无更多GPA算法！");
+				}
+			}
+		});
+	}
+
+	function showGPA(){
+		var index;
+		$.ajax({
+			url: "/main/showGPA",
+			async: false,
+			type: "post",
+			dataType: "json",
+			beforeSend: function () {
+				index = layer.load(0, {
+					shade: [0.2, '#000'] //0.1透明度的白色背景
+				});
+			},
+			success: function (d) {
+				layer.alert("您的GPA为"+ d.data);
+			},
+			error: function (xhr) {
+				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+			},
+			complete: function () {
+				layer.close(index);
+			}
+		});
+	}
+
+	function gotoPyfawchqk() {
+		window.location = "/student/integratedQuery/planCompletion/index";
+	}
+
+	function queryMyProctorFull(flag) {
+		if (!flag) {
+			flag = "";
+		}
+		var index;
+		$.ajax({
+			url: "/main/queryMyProctorFull",
+			async: false,
+			type: "post",
+			data: "flag=" + flag,
+			scriptCharset: 'utf-8',
+			dataType: "json",
+			beforeSend: function () {
+				index = layer.load(0, {
+					shade: [0.2, '#000'] //0.1透明度的白色背景
+				});
+			},
+			success: function (d) {
+				fullCalendars();
+				$('#main-calendar').fullCalendar('refetchEvents');
+				$('#main-calendar').fullCalendar('renderEvents', JSON.parse(d.data));
+				$('#main-calendar').fullCalendar('changeView', "agendaWeek");
+			},
+			error: function (xhr) {
+				urp.alert("错误代码[" + xhr.readyState + "-" + xhr.status + "]:获取数据失败！");
+			},
+			complete: function () {
+				layer.close(index);
+			}
+		});
+	}
+
+	function fullCalendars() {
+		var date = new Date();
+		var h = date.getHours();
+		var calendar = $('#main-calendar').fullCalendar({
+			buttonHtml: {
+				prev: '<i class="ace-icon fa fa-chevron-left"></i>',
+				next: '<i class="ace-icon fa fa-chevron-right"></i>'
+			},
+			scrollTime: h + ':00:00',//滚动时间
+			locale: 'zh-cn',
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay,listMonth'
+			},
+			timeFormat: 'HH:mm',
+			slotLabelFormat: 'HH:mm',
+			height: 500,
+			weekends: true,
+			columnFormat: 'ddd', // Mon 9/7标题行显示
+			monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+			/*displayEventTime: false, //默认不显示事件上的时间*/
+			editable: false,
+			eventLimit: true,
+			editable: true,
+			eventDragStart: function (event, jsEvent, ui, view) {//拖拽开始之前
+				return false;
+			},
+			eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) { //拖动停止时触发，事件已移至不同的日期/时间
+
+
+			},
+			eventDragStop: function (event, jsEvent, ui, view) { //拖拽元素结束回调函数
+
+			},
+			eventResizeStart: function (event, jsEvent, ui, view) { //事件调整大小前触发
+				return false;
+			},
+			eventResize: function (event, delta, revertFunc, jsEvent, ui, view) {//当调整大小停止并且事件持续时间发生变化时触发
+				revertFunc();
+
+			},
+			droppable: false, // this allows things to be dropped onto the calendar !!!
+			dropAccept: '*',
+			drop: function (date, allDay) { // this function is called when something is dropped,删除时触发
+
+
+			},
+			selectable: true,
+			selectHelper: false,//选择时占位阴影
+			selectAllow: function (selectInfo) {
+
+			},
+			select: function (start, end, allDay) {
+
+
+			},
+			eventClick: function (calEvent, jsEvent, view) {
+
+
+			},
+			//当鼠标悬停在一个事件上触发此操作
+			eventMouseover: function (calEvent, jsEvent, view) {
+				if ($('#main-calendar').fullCalendar('getView').type != "listMonth") {
+					var startTi = $.fullCalendar.formatDate(calEvent.start, "HH:mm");
+					var endTi = $.fullCalendar.formatDate(calEvent.end, "HH:mm");
+					var ktinfo = '', ktinfos = new Array();
+					if (calEvent.showmsg != "" && calEvent.showmsg != undefined) {
+						var showMsg = calEvent.showmsg.split("&");
+
+						var ss = "", divHt = "";
+
+						for (var i = 0; i < showMsg.length; i++) {
+							var sss = showMsg[i].split("@");
+							if (sss[0] == "选课阶段") {
+								divHt += '<div class="promptedmessage" >\
+		                            <span><i class="ace-icon fa fa-info-circle"></i>' + sss[0] + '</span>\
+		                            <span><i class="ace-icon fa fa-graduation-cap" style="margin-right: 3px;"></i>' + sss[1] + '</span>\
+		                            <span><i class="ace-icon fa fa-clock-o" style="margin-left: 2px;"></i>' + sss[2] + '~' + sss[3] + '</span>\
+		                            <span><i class="ace-icon fa fa-shopping-cart" style="margin-left: 2px;margin-right: 9px;"></i>' + sss[4] + '</span>\
+		                            </div>';
+							} else {
+								divHt += '<div class="promptedmessage" >\
+		                            <span><i class="ace-icon fa fa-info-circle"></i>' + sss[0] + '</span>\
+		                            <span><i class="ace-icon fa fa-graduation-cap" style="margin-right: 3px;"></i>' + sss[1] + '</span>\
+		                            <span><i class="ace-icon fa fa-clock-o" style="margin-left: 2px;"></i>' + startTi + '~' + endTi + '</span>\
+		                            <span><i class="ace-icon fa fa-map-marker" style="margin-left: 2px;margin-right: 9px;"></i>' + (sss[2] == null || sss[2] == "null" ? "" : sss[2]) + '</span>\
+		                            <span><i class="ace-icon fa fa-user" style="margin-left: 2px;margin-right: 9px;"></i>' + (sss[3] == null || sss[3] == "null" ? "" : sss[3]) + '</span>\
+		                            </div>';
+							}
+
+						}
+						$("#promptedmessage-div").html(divHt);
+					} else {
+					}
+					$("#schedule-hover").css("display", "block");
+					changeLocaltion(jsEvent);
+				}
+			},
+			eventMouseout: function (event, jsEvent, view) {
+				$("#promptedmessage-div").html("");
+				$("#schedule-hover").css("display", "none");
+			}
+		});
+	}
+
+	$(document).mousemove(changeLocaltion);
+	function changeLocaltion(obj) {
+		if ($("#schedule-hover").css("display") == "block") {
+			var winW = $(window).width(), winH = $(window).height();//窗口的宽和高
+			var eleH = $("#promptedmessage-div").height();//元素的宽和高
+			var eleW = $("#promptedmessage-div").width();
+
+			var divH = $("#right-table-div").offset().top;
+			var divW = $("#right-table-div").offset().left;
+
+			var y = winH - ($(document).height() - obj.pageY);
+
+			if (obj.pageX > eleW) {
+				$("#schedule-hover").css("left", "auto");//左边
+				$("#schedule-hover").css("right", winW - obj.pageX + eleW + 5);//宽度-鼠标坐标+div宽度
+			} else {
+				$("#schedule-hover").css("right", "auto");
+				$("#schedule-hover").css("left", obj.pageX - divW + 30);//
+
+			}
+
+			if (winH - obj.pageY > eleH) {//下边
+				$("#schedule-hover").css("bottom", "auto");//下边
+				$("#schedule-hover").css("top", obj.pageY - divH);
+
+			} else {
+				$("#schedule-hover").css("top", "auto");//上边
+				$("#schedule-hover").css("bottom", winH - y - 20);
+			}
+		}
+	}
+
+
+	function queryCxxfTip() {
+		$.ajax({
+			url: "/main/queryCxxfTip",
+			type: "post",
+			dataType: "json",
+			success: function (data) {
+				if (data.msg) {
+					layer.confirm(data.msg, {
+						title: '创新学分未达标提示',
+						btn: ['知道了，不再提醒', '下次提醒'] //按钮
+					}, function (index, layero) {
+						dealCxxfTip(index, '0');
+					}, function (index, layero) {
+						dealCxxfTip(index, '1');
+					});
+				}
+			},
+			error: function () {
+				urp.alert("获取信息失败！");
+			}
+		});
+	}
+
+	function dealCxxfTip(index, flag) {
+		$.ajax({
+			url: "/main/dealCxxfTip",
+			type: "post",
+			data: {flag: flag},
+			dataType: "json",
+			success: function (data) {
+				if (data.result.indexOf("/") != -1) {
+					window.location.href = data.result;
+				} else {
+					if (data.result == "ok") {
+						layer.close(index);
+					} else {
+						urp.alert("处理提示消息失败！");
+					}
+				}
+			},
+			error: function () {
+				urp.alert("处理提示信息失败！");
+			}
+		});
+	}
+
+	/*常用下载*/
+	function queryDownFile(flag) {
+		if (!flag) {
+			flag = "";
+		}
+
+		$.ajax({
+			url: "/main/showDown",
+			type: "get",
+			data: {flag: flag},
+			dataType: "json",
+			success: function (d) {
+				$("#all_down").html("");
+				if (d.length > 0) {
+					$.each(d, function (i, v) {
+						var cont = "<h3 style='margin:0 0 6px 0;height:35px;' class='click-item'><a href='#' title='" + v[1] + "' onclick='downUsedFile(\"" + v[0] + "\");return false'>";
+						cont += v[1];
+						cont += "<label style='float:right;height:30px;'>" +
+								"<i class='ace-icon fa fa-download bigger-110'></i> 点击下载 </label></a></h3>";
+						$("#all_down").append(cont);
+					});
+
+				} else {
+					$("#all_down").append("<div class='alert alert-block alert-success'>" +
+							"<button type='button' class='close' data-dismiss='alert'>" +
+							"<i class='ace-icon fa fa-times'></i>" +
+							"</button>" +
+							"<i class='ace-icon fa fa-info-circle green'></i> " +
+							"暂时没有文件可以下载(●'◡'●)" +
+							"</div>");
+				}
+			},
+			error: function () {
+				urp.alert("获取常用文件列表失败！");
+			}
+		});
+	}
+
+	function downUsedFile(fileName) {
+
+		var form = $("<form>");   //定义一个form表单
+		form.attr('style', 'display:none');   //在form表单中添加查询参数
+		form.attr('target', '');
+		form.attr('method', 'post');
+		form.attr('action', "/main/DownFile");
+		form.attr('id', "fileDownForm");
+
+		var input1 = $('<input>');
+		input1.attr('type', 'hidden');
+		input1.attr('name', 'fileName');
+		input1.attr('value', fileName);
+
+		$('body').append(form);  //将表单放置在web中
+		form.append(input1);   //将查询参数控件提交到表单上
+		form.submit();   //表单提交
+		$(form).remove();
+	}
+</script>
+
+		</div>
+		<!-- /.page-content -->
+	</div>
+	<!-- /.main-content -->
+
+
+	<a href="http://jwstudent.lnu.edu.cn/#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
+</div>
+<!-- /.main-container -->
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var bar = $.cookie('selectionBar');
+		if (bar && bar != 0) {
+			if (true) {
+				var barObj = document.getElementById(bar);
+				var pts = $(barObj).parents("li");
+				for (var i = pts.length - 1; i >= 0; i--) {
+					if (!$(pts[i]).hasClass("open")) {
+						$(pts[i]).addClass("open");
+						$(pts[i]).children("ul").addClass("nav-show").attr("style", "display: block;");
+					}
+				}
+				barObj == null ? barObj = document.getElementById(bar) : barObj.className = "active";
+				$(barObj).find("a").prepend("<i class='menu-icon fa fa-caret-right'></i>");
+			}
+
+			var lastmenu = $("#" + bar).find("a").first().text();
+			var secmenu = $("#" + bar).parent().parent().find("a").first().text();
+			var firmenu = $("#" + bar).parent().parent().parent().parent().find("a").first().text();
+
+			$("#lastmenu").html(lastmenu.replace(/(^\s*)|(\s*$)/g, ""));
+			$("#secmenu").html(secmenu.replace(/(^\s*)|(\s*$)/g, ""));
+			$("#firmenu").html(firmenu.replace(/(^\s*)|(\s*$)/g, ""));
+		} else {
+			$("#lastmenu").remove();
+			$("#secmenu").remove();
+			$("#firmenu").remove();
+		}
+
+		$('#logout').click(function () {
+			$.cookie('JSESSIONID', null);
+		});
+	});
+
+	var sUserAgent = navigator.userAgent.toLowerCase();
+	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+	var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+	var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+	var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+	var bIsAndroid = sUserAgent.match(/android/i) == "android";
+	var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+	function ckickTopMenu(obj) {
+		if ($(obj).attr("menuid")) {
+			var menuid = $(obj).attr("menuid");
+			if ($("#" + menuid + " a:eq(0)").hasClass("dropdown-toggle")) {
+				if ($("#" + menuid).parents('.nav-list li').size() > 0) {
+					if ($("#" + menuid).parents('.nav-list li:eq(0)').hasClass("open")) {
+						$("#" + menuid + " a").trigger("click");
+					} else {
+						$("#" + menuid).parents('.nav-list li').find("a:eq(0)").trigger("click");
+						if (!$("#" + menuid).hasClass("open")) {
+							$("#" + menuid + " a").trigger("click");
+						}
+					}
+				} else {
+					$("#" + menuid + " a:eq(0)").trigger("click");
+				}
+			} else {
+				window.location.href = $("#" + menuid + " a:eq(0)").attr("href");
+			}
+		}
+	}
+
+	function toSelect(obj) {
+		$.cookie('selectionBar', obj.id, {
+			path: '/'
+		});
+	}
+
+	/*function openLayIM() {
+	 if ($('.layui-layim-close').size() > 0) {
+	 $('.layui-layim-close').trigger('click');
+	 }
+	 }*/
+
+	function addslidersModel(id, width) {
+		var modal = '<div id="' + id + '" class="modal right fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1">\
+	            <div class="modal-dialog">\
+	                <div class="modal-content">\
+	                    <div class="center">\
+                            <img src="/img/icon/pageloading.gif" style="width:28px;height:28px;">\
+                        </div>\
+	                </div>\
+	            </div>\
+	        </div>';
+		var modal = $(modal).appendTo('body');
+		$(".modal-dialog").css("width", width);
+		return modal;
+	}
+	function openWorkRestSchedule() {
+		var modal = addslidersModel("work_rest_schedule_modal", "60%");
+		var url = "/main/queryRestSchedule";
+		modal.modal({
+			remote: url
+		}).on('hide.bs.modal', function () {
+			modal.remove();
+		});
+	}
+	/*function closeLayIM(){
+	 console.info($('.layui-layer-close').size())
+	 if ($('.layui-layer-close').size() > 0) {
+	 $('.layui-layer-close').trigger('click');
+	 }
+	 }*/
+</script>
+
+
+</body></html>
